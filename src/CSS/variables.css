@@ -1,6 +1,15 @@
 :root {
     --darkBg: #121212;
+    --darkGrey: #222222;
     --lightBg: #FAFAFA;
     --black: #000;
     --white: #fff;
+}
+
+.light {
+    --darkBg: #FAFAFA;
+    --darkGrey: #DDDDDD;
+    --lightBg: #121212;
+    --black: #fff;
+    --white: #000;    
 }

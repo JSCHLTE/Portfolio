@@ -8,3 +8,9 @@ body {
     background-color: var(--darkBg);
     color: var(--white);
 }
+
+.content-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    margin: 8rem auto;
+}
