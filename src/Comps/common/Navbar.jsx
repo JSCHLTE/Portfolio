@@ -1,15 +1,21 @@
-import NavLogo from './Navbar/NavLogo'
-import NavLinks from './Navbar/NavLinks'
-import Theme from './Navbar/Theme'
+import { Link } from 'react-router-dom'
+import Theme from './Theme'
 import '../../CSS/navbar.css'
 
 const Navbar = ({ handleTheme, mode }) => {
   return (
     <nav>
       <div className='nav-inner'>
-        <NavLogo />
+        <div className="nav-logo-wrapper">
+          <img src="/images/logo.png" alt="Graphic of the letters J and S in purple"/>
+        </div>
+        
         <div className='nav-right'>
-          <NavLinks />
+          <ul className='nav-links'>
+            <li className='nav-link'><Link to="/">Home</Link></li>
+            <li className='nav-link'><Link to="/blog">Blog</Link></li>
+          </ul>
+          
           <Theme handleTheme={handleTheme} mode={mode}/>
         </div>
       </div>
