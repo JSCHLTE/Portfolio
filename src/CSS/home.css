@@ -47,12 +47,13 @@
 }
 
 .bio-wrapper img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     margin: 0 auto;
     display: block;
     object-fit: cover;
     border-radius: 50%;
+    border: 3px solid var(--theme);
 }
 
 .bio-info-name {
