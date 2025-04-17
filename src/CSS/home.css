@@ -1,20 +1,15 @@
 .home-wrapper {
     display: flex;
-    gap: 2rem;
+    gap: 0.5rem;
     justify-content: space-between;
 }
 
 .home-left {
     flex: 1;
     background-color: var(--darkGrey);
-    max-height: 400px;
     max-width: 275px;
     border-radius: 20px;
-}
-
-.home-left img {
-    width: 250px;
-    height: 250px;
+    height: fit-content;
 }
 
 .home-right {
@@ -38,4 +33,38 @@
     width: 100%;
     height: 250px;
     object-fit: cover;
+}
+
+.bio-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+}
+
+.bio-img-wrapper {
+    margin-bottom: 1rem;
+}
+
+.bio-wrapper img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.bio-info-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.bio-links-wrapper {
+    margin-top: 1rem;
+}
+
+.bio-links-wrapper a {
+    font-size: 1.5rem;
+    color: var(--lightBg);
 }
