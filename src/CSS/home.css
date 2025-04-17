@@ -1,0 +1,41 @@
+.home-wrapper {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.home-left {
+    flex: 1;
+    background-color: var(--darkGrey);
+    max-height: 400px;
+    max-width: 275px;
+    border-radius: 20px;
+}
+
+.home-left img {
+    width: 250px;
+    height: 250px;
+}
+
+.home-right {
+    flex: 2;
+    overflow-y: auto;
+    height: 80vh;
+}
+
+.home-right .projects-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.projects-card-wrapper {
+    margin: 0 0 1rem 1rem;
+    background-color: var(--darkGrey);
+    border-radius: 20px;
+}
+
+.home-right img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
