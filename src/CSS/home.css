@@ -1,10 +1,10 @@
-.home-wrapper {
+.home-wrapper, .about-wrapper {
     display: flex;
     gap: 0.5rem;
     justify-content: space-between;
 }
 
-.home-left {
+.home-left, .about-left {
     flex: 1;
     background-color: var(--darkGrey);
     max-width: 275px;
@@ -12,7 +12,7 @@
     height: fit-content;
 }
 
-.home-right {
+.home-right, .about-right {
     flex: 2;
     overflow-y: auto;
     height: 80vh;

@@ -12,7 +12,7 @@ const Bio = () => {
             <p className='bio-info-role'>Front-end Engineer</p>
         </div>
         <div className='bio-links-wrapper'>
-            <a href="https://github.com/JSCHLTE" target='_blank'><i class="fa-brands fa-github"></i></a>
+            <a href="https://github.com/JSCHLTE" target='_blank'><i className="fa-brands fa-github"></i></a>
         </div>
     </div>
   )

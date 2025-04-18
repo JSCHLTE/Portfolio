@@ -7,12 +7,13 @@ const Navbar = ({ handleTheme, mode }) => {
     <nav>
       <div className='nav-inner'>
         <div className="nav-logo-wrapper center-flex">
-          <img src="/images/pfp.webp" alt="Graphic of the letters J and S in purple"/>
+          <Link to="/"><img src="/images/pfp.webp" alt="Graphic of the letters J and S in purple"/></Link>
         </div>
         
         <div className='nav-right'>
           <ul className='nav-links'>
             <li className='nav-link'><Link to="/">Home</Link></li>
+            <li className='nav-link'><Link to="/about">About</Link></li>
             <li className='nav-link'><Link to="/blog">Blog</Link></li>
           </ul>
           

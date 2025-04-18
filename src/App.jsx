@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react"
 import { Route, Routes } from "react-router-dom"
 import Navbar from "./Comps/common/Navbar"
 import Home from "./Pages/Home"
 import Blog from "./Pages/Blog"
-import { useEffect, useState } from "react"
+import About from "./Pages/About"
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
     <div className="content-wrapper">
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path="/about" element={<About />}/>
         <Route path="/blog" element={<Blog />}/>
       </Routes>
     </div>
