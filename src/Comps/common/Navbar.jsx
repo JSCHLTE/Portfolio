@@ -6,8 +6,8 @@ const Navbar = ({ handleTheme, mode }) => {
   return (
     <nav>
       <div className='nav-inner'>
-        <div className="nav-logo-wrapper">
-          <img src="/images/logo.png" alt="Graphic of the letters J and S in purple"/>
+        <div className="nav-logo-wrapper center-flex">
+          <img src="/images/pfp.webp" alt="Graphic of the letters J and S in purple"/>
         </div>
         
         <div className='nav-right'>

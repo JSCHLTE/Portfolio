@@ -3,23 +3,26 @@ import React from 'react'
 const ProjectsCard = ({ project }) => {
     const { thumbnail, title, desc, tags, github, live } = project
 
+    function formatClassName(tag) {
+        return tag.trim().toLowerCase().replace(/[^a-z0-9\-]/g, '-');
+    }    
+
   return (
     <div className='projects-card-wrapper'>
         <div className='projects-card-thumbnail-wrapper'>
             <div className='projects-card-tags-wrapper'>
-                {tags.map((tag) => (
-                    <span className='projects-card-tag' key={tag}>{tag}</span>
+            {tags.map((tag) => (
+                <span className={`projects-card-tag ${formatClassName(tag)}`} key={tag}>
+                    {tag}
+                </span>
                 ))}
+
             </div>
             <img src={thumbnail} alt='Project thumbnail'/>
         </div>
         <div className='projects-card-info-wrapper'>
             <h4>{title}</h4>
             <p>{desc}</p>
-        </div>
-        <div className='projects-card-links-wrapper'>
-            <a href={github}>Github</a>
-            <a href={live}>Live Site</a>
         </div>
     </div>
   )

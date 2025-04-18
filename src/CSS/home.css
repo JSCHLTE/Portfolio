@@ -27,6 +27,7 @@
     margin: 0 0 1rem 1rem;
     background-color: var(--darkGrey);
     border-radius: 20px;
+    position: relative;
 }
 
 .home-right img {
@@ -68,4 +69,45 @@
 .bio-links-wrapper a {
     font-size: 1.5rem;
     color: var(--lightBg);
+}
+
+.projects-card-tags-wrapper {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.projects-card-tags-wrapper span {
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.projects-card-tags-wrapper .react {
+    background-color: #61DBFB;
+    color: #000;
+}
+
+.projects-card-tags-wrapper .open-ai {
+    background-color: #000;
+    color: #fff;
+}
+
+.projects-card-tags-wrapper .javascript {
+    background-color: #F0DB4F;
+    color: #323330;
+}
+
+.projects-card-info-wrapper {
+    margin: 1rem;
+}
+
+.projects-card-info-wrapper h4 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.projects-card-info-wrapper p {
+    margin: 0.5rem 0 1rem;
 }

@@ -31,7 +31,7 @@ export const projectsData = [
         thumbnail: "/images/logo.png",
         title: 'Test Project 4',
         desc: 'This is a test project and this is also a placeholder paragraph',
-        tags: ['React'],
+        tags: ['React', 'JavaScript'],
         github: 'https://github.com/JSCHLTE', //this will link to project repo later
         live: 'https://github.com/JSCHLTE'
     }, 
