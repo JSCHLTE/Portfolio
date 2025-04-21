@@ -1,4 +1,4 @@
-const JobTitle = ({ title, workPlace, location, dateStart, dateEnd, tasks }) => {
+const JobTitle = ({ title, workPlace, location, dateStart, dateEnd, tasks, active }) => {
 
     const formatDate = (dateString) => {
         const correctString = dateString.toLowerCase();
@@ -15,7 +15,7 @@ const JobTitle = ({ title, workPlace, location, dateStart, dateEnd, tasks }) => 
     console.log(dateStart)
 
   return (
-    <section className='works-item'>
+    <section className={`works-item ${active ? active : ''}`}>
     <h2 className='works-title'>{title}</h2>
       <p className='works-meta'>
         <span>{workPlace} – {location}</span> | 

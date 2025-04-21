@@ -17,6 +17,10 @@
     padding: 1rem;
 }
 
+.works-item.active {
+    border: 1px solid var(--theme);
+}
+
 .works-meta {
     margin-top: 0.5rem;
 }

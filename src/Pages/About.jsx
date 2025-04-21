@@ -34,6 +34,7 @@ const About = () => {
         dateStart="2022-08"
         dateEnd="present"
         tasks={["Managed 120+ WordPress websites for diverse clients.", "Designed and implemented custom website layouts and features.", "Troubleshot scripting issues and ensured website functionality.", "Applied SEO strategies to enhance search engine rankings and drive traffic.", "Collaborated with designers and developers to ensure optimal user experience and visual design."]}
+        active="active"
       />
             <JobTitle
         title="Jewelry Consultant (Seasonal)"
@@ -42,6 +43,7 @@ const About = () => {
         dateStart="2021-10"
         dateEnd="2022-01"
         tasks={["Assisted customers with purchases and product recommendations.","Handled POS transactions and applied discounts.","Maintained attractive merchandise displays.", "Delivered high-quality customer service."]}
+        active=""
       />
     </div>
     </section>
