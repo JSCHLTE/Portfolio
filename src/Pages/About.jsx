@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Bio from '../Comps/common/home/Bio'
+import Bio from '../Comps/common/Bio'
 import JobTitle from '../Comps/common/about/JobTitle'
 import '../CSS/about.css'
 

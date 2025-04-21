@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import Bio from "../Comps/common/home/Bio"
+import Bio from '../Comps/common/Bio'
 import Projects from "../Comps/common/home/Projects"
 import '../CSS/home.css'
 
@@ -15,14 +15,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-wrapper">
+    <main className="home-wrapper">
       <div className="home-left">
         <Bio />
       </div>
       <div className="home-right">
         <Projects />
       </div>
-    </div>
+    </main>
   )
 }
 

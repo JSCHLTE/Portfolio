@@ -12,8 +12,6 @@ const JobTitle = ({ title, workPlace, location, dateStart, dateEnd, tasks, activ
         });
     }
 
-    console.log(dateStart)
-
   return (
     <section className={`works-item ${active ? active : ''}`}>
     <h2 className='works-title'>{title}</h2>

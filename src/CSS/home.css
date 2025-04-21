@@ -1,10 +1,9 @@
-.home-wrapper, .about-wrapper {
+.home-wrapper, .about-wrapper, .blog-wrapper {
     display: flex;
-    gap: 0.5rem;
     justify-content: space-between;
 }
 
-.home-left, .about-left {
+.home-left, .about-left, .blog-left {
     flex: 1;
     background-color: var(--darkGrey);
     max-width: 275px;
@@ -12,13 +11,13 @@
     height: fit-content;
 }
 
-.home-right, .about-right {
+.home-right, .about-right, .blog-right {
     flex: 2;
     overflow-y: auto;
     height: 80vh;
 }
 
-.home-right .projects-wrapper {
+.home-right .projects-wrapper, .blogs-wrapper{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
