@@ -1,0 +1,40 @@
+.blog-right {
+    padding-left: 1rem;
+}
+
+.blog-item {
+    background-color: var(--darkGrey);
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.blog-meta-pfp {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.blog-meta-left {
+    display: flex;
+    align-items: center;
+}
+
+.blog-meta-author, .blog-meta-likes {
+    margin-left: 0.5rem;
+}
+
+.blog-title {
+    font-size: 1.25rem;
+}
+
+.blog-snippet {
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+}
