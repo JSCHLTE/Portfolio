@@ -1,18 +1,26 @@
-.blog-right {
-    padding-left: 1rem;
+.blogs-wrapper {
+    margin-top: 1rem;
+}
+
+.blog-right h1 {
+    margin-left: 1rem;
 }
 
 .blog-item {
     background-color: var(--darkGrey);
     padding: 1rem;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 1rem;
 }
 
 .blog-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .blog-meta-pfp {

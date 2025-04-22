@@ -3,8 +3,10 @@ import React from 'react'
 const BlogCard = ({ blog }) => {
   return (
     <article className='blog-item'>
-        <h3 className='blog-title'>{blog.title}</h3>
-        <p className='blog-snippet'>{blog.snippet}</p>
+        <div className='blog-info'>
+          <h3 className='blog-title'>{blog.title}</h3>
+          <p className='blog-snippet'>{blog.snippet}</p>
+        </div>
         <div className='blog-meta'>
             <div className='blog-meta-left'>
               <img src="/images/pfp.webp" alt="Image of Jordan" className='blog-meta-pfp' />
