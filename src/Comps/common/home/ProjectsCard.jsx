@@ -22,8 +22,8 @@ const ProjectsCard = ({ project }) => {
             <img src={thumbnail} alt='Project thumbnail'/>
         </div>
         <div className='projects-card-info-wrapper'>
-            <h4><AnimatedText text={title} /></h4>
-            <p>{desc}</p>
+            <h4 className='projects-card-title'><AnimatedText text={title} /></h4>
+            <p className='projects-card-desc'>{desc}</p>
         </div>
     </div>
   )
