@@ -1,10 +1,11 @@
 import React from 'react'
+import AnimatedText from '../AnimatedText'
 
 const BlogCard = ({ blog }) => {
   return (
     <article className='blog-item'>
         <div className='blog-info'>
-          <h3 className='blog-title'>{blog.title}</h3>
+          <h3 className='blog-title'><AnimatedText text={blog.title} /></h3>
           <p className='blog-snippet'>{blog.snippet}</p>
         </div>
         <div className='blog-meta'>

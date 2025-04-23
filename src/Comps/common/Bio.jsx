@@ -1,4 +1,5 @@
 import React from 'react'
+import AnimatedText from './AnimatedText'
 
 const Bio = () => {
   return (

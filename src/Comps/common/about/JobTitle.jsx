@@ -1,3 +1,5 @@
+import AnimatedText from "../AnimatedText";
+
 const JobTitle = ({ title, workPlace, location, dateStart, dateEnd, tasks, active }) => {
 
     const formatDate = (dateString) => {
@@ -14,7 +16,7 @@ const JobTitle = ({ title, workPlace, location, dateStart, dateEnd, tasks, activ
 
   return (
     <section className={`works-item ${active ? active : ''}`}>
-    <h2 className='works-title'>{title}</h2>
+    <h2 className='works-title'><AnimatedText text={title}/></h2>
       <p className='works-meta'>
         <span>{workPlace} – {location}</span> | 
         <time dateTime={dateStart}> {formatDate(dateStart)}</time> - <time dateTime={dateEnd ? dateEnd : ''}>{formatDate(dateEnd)}</time>

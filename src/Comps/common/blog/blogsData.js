@@ -14,5 +14,29 @@ export const blogsData = [
         author: 'Jordan Schulte',
         date: '2/2/3000',
         likes: 3
+    },
+    {
+        id: 2,
+        title: 'Another normal blog here',
+        snippet: 'Dont look here nothing to see, keep this a secret, this is very top secret lololololooll please no whatever im typing gibberish!',
+        author: 'Jordan Schulte',
+        date: '2/2/3000',
+        likes: 3
+    },
+    {
+        id: 3,
+        title: 'Another normal blog here',
+        snippet: 'Dont look here nothing to see, keep this a secret, this is very top secret lololololooll please no whatever im typing gibberish!',
+        author: 'Jordan Schulte',
+        date: '2/2/3000',
+        likes: 3
+    },
+    {
+        id: 4,
+        title: 'Another normal blog here',
+        snippet: 'Dont look here nothing to see, keep this a secret, this is very top secret lololololooll please no whatever im typing gibberish!',
+        author: 'Jordan Schulte',
+        date: '2/2/3000',
+        likes: 3
     }
 ]

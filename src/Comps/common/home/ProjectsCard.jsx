@@ -1,4 +1,5 @@
 import React from 'react'
+import AnimatedText from '../AnimatedText';
 
 const ProjectsCard = ({ project }) => {
     const { thumbnail, title, desc, tags, github, live } = project
@@ -21,7 +22,7 @@ const ProjectsCard = ({ project }) => {
             <img src={thumbnail} alt='Project thumbnail'/>
         </div>
         <div className='projects-card-info-wrapper'>
-            <h4>{title}</h4>
+            <h4><AnimatedText text={title} /></h4>
             <p>{desc}</p>
         </div>
     </div>

@@ -14,6 +14,17 @@
     flex-direction: column;
     justify-content: space-between;
     margin-left: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.blog-item:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+.blog-item:hover .blog-snippet {
+    margin-top: 0;
 }
 
 .blog-meta {
@@ -45,4 +56,5 @@
 .blog-snippet {
     margin-top: 0.5rem;
     font-size: 1.05rem;
+    transition: margin 0.3s ease;
 }

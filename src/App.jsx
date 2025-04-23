@@ -4,6 +4,7 @@ import Navbar from "./Comps/common/Navbar"
 import Home from "./Pages/Home"
 import Blog from "./Pages/Blog"
 import About from "./Pages/About"
+import AnimatedText from "./Comps/common/AnimatedText"
 
 function App() {
 
