@@ -6,14 +6,28 @@ import { blogsData } from '../Comps/common/blog/blogsData'
 
 const Blog = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.body.style.overflow = 'hidden';
+  const useScrollLockOnLargeScreens = () => {
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth > 768) {
+          window.scrollTo(0, 0);
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = 'auto';
+        }
+      };
+  
+      handleResize(); // Call on mount
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        document.body.style.overflow = 'auto'; // Clean up
+      };
+    }, []);
+  };  
 
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
+  useScrollLockOnLargeScreens();
 
   return (
     <main className="blog-wrapper">

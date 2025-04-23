@@ -33,7 +33,8 @@ body {
   }
 
   .word {
-    white-space: nowrap; /* prevents the word from splitting */
+    white-space: nowrap;
+    display: inline-block;
   }
   
   .letter {

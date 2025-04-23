@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Theme from './Theme'
 import '../../CSS/navbar.css'
 
-const Navbar = ({ handleTheme, mode }) => {
+const Navbar = ({ handleTheme, mode, handleBurger, navMenu }) => {
   return (
     <nav>
       <div className='nav-inner'>
@@ -11,13 +11,20 @@ const Navbar = ({ handleTheme, mode }) => {
         </div>
         
         <div className='nav-right'>
-          <ul className='nav-links'>
+          <ul className={`nav-links ${navMenu ? `active` : ``}`}>
             <li className='nav-link'><Link to="/">Home</Link></li>
             <li className='nav-link'><Link to="/about">About</Link></li>
             <li className='nav-link'><Link to="/blog">Blog</Link></li>
           </ul>
           
           <Theme handleTheme={handleTheme} mode={mode}/>
+        
+          <div className='nav-burger' onClick={handleBurger}>
+            <div className='line line1'></div>
+            <div className='line line2'></div>
+            <div className='line line3'></div>
+          </div>
+
         </div>
       </div>
     </nav>

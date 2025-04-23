@@ -6,14 +6,28 @@ import AnimatedText from '../Comps/common/AnimatedText'
 
 const About = () => {
 
+  const useScrollLockOnLargeScreens = () => {
     useEffect(() => {
-        window.scrollTo(0, 0);
-        document.body.style.overflow = 'hidden';
-    
-        return () => {
+      const handleResize = () => {
+        if (window.innerWidth > 768) {
+          window.scrollTo(0, 0);
+          document.body.style.overflow = 'hidden';
+        } else {
           document.body.style.overflow = 'auto';
-        };
-      }, []);
+        }
+      };
+  
+      handleResize(); // Call on mount
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        document.body.style.overflow = 'auto'; // Clean up
+      };
+    }, []);
+  };  
+
+  useScrollLockOnLargeScreens();
 
   return (
     <div className="about-wrapper">
