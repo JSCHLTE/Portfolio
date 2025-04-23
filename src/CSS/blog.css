@@ -58,3 +58,9 @@
     font-size: 1.05rem;
     transition: margin 0.3s ease;
 }
+
+@media (max-width: 768px) {
+    .blog-right h1, .blog-item {
+        margin-left: 0;
+    }
+}

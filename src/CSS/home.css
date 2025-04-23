@@ -35,6 +35,7 @@
     border-radius: 20px;
     position: relative;
     transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
 .projects-card-wrapper:hover {
@@ -110,5 +111,9 @@
 
     .home-right, .about-right, .blog-right {
         margin-top: 2rem;
+    }
+
+    .projects-card-wrapper {
+        margin-left: 0;
     }
 }
