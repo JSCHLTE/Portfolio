@@ -5,6 +5,8 @@
     --black: #000;
     --white: #fff;
     --theme: #5A31B0;
+    --permBlack: #000;
+    --permWhite: #fff;
 }
 
 .light {
@@ -12,5 +14,7 @@
     --darkGrey: #f3f3f3;
     --lightBg: #121212;
     --black: #fff;
-    --white: #000;    
+    --white: #000; 
+    --permBlack: #000;
+    --permWhite: #fff;   
 }

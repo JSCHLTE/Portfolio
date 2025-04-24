@@ -96,6 +96,46 @@
     transition: margin 0.3s ease;
 }
 
+.projects-card-buttons {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.projects-card-button {
+    border-radius: 50px;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.projects-card-button.live {
+    margin-right: 0.5rem;
+    background-color: var(--permWhite);
+    color: var(--permBlack);
+    border: 2px solid var(--permWhite);
+}
+
+.projects-card-button.live i {
+    font-size: 0.85rem;
+}
+
+.projects-card-button.github {
+    background-color: var(--permBlack);
+    color: var(--permWhite);
+    border: 2px solid var(--permBlack);
+}
+
+.projects-card-button i {
+    margin-left: 0.25rem;
+}
+
+.projects-card-button:hover {
+    border-color: var(--theme);
+}
+
 @media (max-width: 768px) {
     .home-wrapper, .about-wrapper, .blog-wrapper {
         flex-direction: column;

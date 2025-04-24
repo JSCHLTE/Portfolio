@@ -1,4 +1,4 @@
-export const projectsData = [
+export const projectsThumbData = [
     {
         slug: 'personal-portfolio',
         thumbnail: "/images/portfolio.png",
