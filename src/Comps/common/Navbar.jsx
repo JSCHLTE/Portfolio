@@ -1,11 +1,25 @@
 import { Link } from 'react-router-dom'
 import Theme from './Theme'
 import '../../CSS/navbar.css'
+import { useEffect, useState } from 'react'
 
 const Navbar = ({ handleTheme, mode, handleBurger, navMenu }) => {
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 25);
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <nav>
-      <div className='nav-inner'>
+      <div className={`nav-inner ${isScrolled ? `active` : ``}`}>
         <div className="nav-logo-wrapper center-flex">
           <Link to="/"><img src="/images/pfp.webp" alt="Graphic of the letters J and S in purple"/></Link>
         </div>

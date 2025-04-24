@@ -5,14 +5,17 @@ const AnimatedText = ({ text }) => {
     const [isVisible, setIsVisible] = useState(false);
     const referenceContainer = useRef();
 
+    const options = {
+        threshold: 1.0,
+    }
+
     useEffect(() => {
         const observer = new IntersectionObserver(([entry]) => {
             if(entry.isIntersecting) {
                 setIsVisible(true)
-                console.log("FDGHFGH")
                 observer.unobserve(entry.target)
             }
-        })
+        }, options)
 
         observer.observe(referenceContainer.current)
 
