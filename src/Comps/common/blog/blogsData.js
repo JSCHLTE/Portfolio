@@ -1,6 +1,6 @@
 export const blogsData = [
     {
-        id: 0,
+        slug: 0,
         title: 'How I created a portfolio website with a blog',
         snippet: 'This is a test snippet, but this will be the blog section of my website. This is a placeholder for CSS styling. More coming soon. Stay tuned!',
         author: 'Jordan Schulte',
@@ -8,7 +8,7 @@ export const blogsData = [
         likes: 23
     },
     {
-        id: 1,
+        slug: 1,
         title: 'Another normal blog here',
         snippet: 'Dont look here nothing to see, keep this a secret, this is very top secret lololololooll please no whatever im typing gibberish!',
         author: 'Jordan Schulte',
@@ -16,7 +16,7 @@ export const blogsData = [
         likes: 3
     },
     {
-        id: 2,
+        slug: 2,
         title: 'Another normal blog here',
         snippet: 'Dont look here nothing to see, keep this a secret, this is very top secret lololololooll please no whatever im typing gibberish!',
         author: 'Jordan Schulte',
@@ -24,7 +24,7 @@ export const blogsData = [
         likes: 3
     },
     {
-        id: 3,
+        slug: 3,
         title: 'Another normal blog here',
         snippet: 'Dont look here nothing to see, keep this a secret, this is very top secret lololololooll please no whatever im typing gibberish!',
         author: 'Jordan Schulte',
@@ -32,7 +32,7 @@ export const blogsData = [
         likes: 3
     },
     {
-        id: 4,
+        slug: 4,
         title: 'Another normal blog here',
         snippet: 'Dont look here nothing to see, keep this a secret, this is very top secret lololololooll please no whatever im typing gibberish!',
         author: 'Jordan Schulte',

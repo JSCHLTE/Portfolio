@@ -6,6 +6,8 @@ import Blog from "./Pages/Blog"
 import About from "./Pages/About"
 import AnimatedText from "./Comps/common/AnimatedText"
 import ScrollToTop from "./Comps/common/ScrollToTop"
+import { blogData } from "./Comps/common/blog/blogData"
+import BlogPage from "./Comps/common/blog/BlogPage"
 
 function App() {
 
@@ -34,6 +36,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/about" element={<About />}/>
         <Route path="/blog" element={<Blog />}/>
+        <Route path='/blogs/:slug' element={<BlogPage />}/>
       </Routes>
     </div>
     </>

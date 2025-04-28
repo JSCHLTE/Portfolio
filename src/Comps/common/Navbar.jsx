@@ -34,9 +34,9 @@ const Navbar = ({ handleTheme, mode, handleBurger, navMenu }) => {
           <Theme handleTheme={handleTheme} mode={mode}/>
         
           <div className='nav-burger' onClick={handleBurger}>
-            <div className='line line1'></div>
-            <div className='line line2'></div>
-            <div className='line line3'></div>
+            <div className={`line line1 ${navMenu ? 'active' : ''}`}></div>
+            <div className={`line line2 ${navMenu ? 'active' : ''}`}></div>
+            <div className={`line line3 ${navMenu ? 'hide' : ''}`}></div>
           </div>
 
         </div>

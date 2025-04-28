@@ -66,10 +66,19 @@ nav {
     height: 3px;
     background-color: var(--white);
     border-radius: 50px;
+    transition: transform 0.3s ease, translateX 0.3s ease, translateY 0.3s ease, scaleX 0.3s ease;
 }
 
-.line3 {
-    width: 15px;
+.line1.active {
+    transform: rotate(45deg) translateX(3px) translateY(3px) scaleX(1.4);
+}
+
+.line2.active {
+    transform: rotate(-45deg) translateX(3px) translateY(-3px) scaleX(1.4);
+}
+
+.line3.hide {
+    display: none !important;
 }
 
 .overlay {

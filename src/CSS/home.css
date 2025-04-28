@@ -40,12 +40,10 @@
 
 .projects-card-wrapper:hover {
     transform: translateY(-5px);
-    cursor: pointer;
 }
 
 .projects-card-wrapper:hover .projects-card-desc {
     margin-top: 0;
-    cursor: pointer;
 }
 
 .home-right img {
@@ -109,6 +107,7 @@
     display: inline-block;
     text-align: center;
     text-decoration: none;
+    margin-bottom: 0.5rem;
 }
 
 .projects-card-button.live {

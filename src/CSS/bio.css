@@ -31,6 +31,15 @@
 .bio-links-wrapper a {
     font-size: 1.5rem;
     color: var(--lightBg);
+    margin-right: 0.6rem;
+}
+
+.bio-links-wrapper i {
+    transition: transform 0.3s ease;
+}
+
+.bio-links-wrapper a:hover i {
+    transform: translateY(-5px);
 }
 
 @media (max-width: 768px) {

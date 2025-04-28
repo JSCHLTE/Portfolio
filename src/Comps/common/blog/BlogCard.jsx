@@ -1,8 +1,10 @@
 import React from 'react'
 import AnimatedText from '../AnimatedText'
+import { Link } from 'react-router-dom'
 
 const BlogCard = ({ blog }) => {
   return (
+    <Link to={`/blogs/${blog.slug}`}>
     <article className='blog-item'>
         <div className='blog-info'>
           <h3 className='blog-title'><AnimatedText text={blog.title} /></h3>
@@ -19,6 +21,7 @@ const BlogCard = ({ blog }) => {
             </div>
         </div>
     </article>
+    </Link>
   )
 }
 

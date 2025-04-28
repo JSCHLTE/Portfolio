@@ -3,6 +3,7 @@ import '../CSS/blog.css'
 import Bio from '../Comps/common/Bio'
 import BlogCard from '../Comps/common/blog/BlogCard';
 import { blogsData } from '../Comps/common/blog/blogsData'
+import AnimatedText from '../Comps/common/AnimatedText';
 
 const Blog = () => {
 
@@ -35,7 +36,7 @@ const Blog = () => {
       <Bio />
     </div>
     <div className="blog-right">
-      <h1>Blogs</h1>
+      <h1><AnimatedText text='Blogs' /></h1>
       <div className='blogs-wrapper'>
         {blogsData.map((blog) => (
           <BlogCard key={blog.id} blog={blog} />

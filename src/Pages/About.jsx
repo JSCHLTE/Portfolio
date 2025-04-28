@@ -36,7 +36,7 @@ const About = () => {
     </div>
     <div className="about-right">
     <section className='aboutme-wrapper'>
-    <h1><AnimatedText text="About Me" /></h1>
+    <h1 className='about-title'><AnimatedText text="About Me" /></h1>
     <p>Hey, I’m a Front-End Engineer who’s big on the details — I like making sure things look exactly how they’re supposed to, and that they work just as well on a phone as they do on a big screen. I’m all about clean, responsive design and writing code that feels solid. Right now, I’m looking to break into the dev world and join a team where I can keep learning, build cool things, and grow as a developer. Outside of coding, you’ll usually find me watching sports, gaming, or spending time with the fam.</p>
     </section>
     <section className='work-wrapper'>
