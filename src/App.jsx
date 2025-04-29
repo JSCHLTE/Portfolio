@@ -7,6 +7,7 @@ import About from "./Pages/About"
 import AnimatedText from "./Comps/common/AnimatedText"
 import ScrollToTop from "./Comps/common/ScrollToTop"
 import BlogPage from "./Comps/common/blog/BlogPage"
+import BlogDashboard from "./Comps/common/blog/BlogDashboard"
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/about" element={<About />}/>
         <Route path="/blog" element={<Blog />}/>
         <Route path='/blogs/:slug' element={<BlogPage />}/>
+        <Route path='/admin' element={<BlogDashboard />}/>
       </Routes>
     </div>
     </>
