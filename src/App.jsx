@@ -6,7 +6,6 @@ import Blog from "./Pages/Blog"
 import About from "./Pages/About"
 import AnimatedText from "./Comps/common/AnimatedText"
 import ScrollToTop from "./Comps/common/ScrollToTop"
-import { blogData } from "./Comps/common/blog/blogData"
 import BlogPage from "./Comps/common/blog/BlogPage"
 
 function App() {

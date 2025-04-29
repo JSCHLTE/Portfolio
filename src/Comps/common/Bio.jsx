@@ -14,7 +14,7 @@ const Bio = () => {
             <div className='bio-links-wrapper'>
             <a href="https://github.com/JSCHLTE" target='_blank' rel='noreferrer noopener'><i className="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/jordan-schulte-9a5961216/" target='_blank' rel='noreferrer noopener'><i className="fa-brands fa-linkedin"></i></a>
-            <a href="https://x.com/jschlte" target='_blank' rel='noreferrer noopener'><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://x.com/jschlte" target='_blank' rel='noreferrer noopener'><i className="fa-brands fa-x-twitter"></i></a>
         </div>
         </div>
     </div>

@@ -39,7 +39,7 @@ const Blog = () => {
       <h1><AnimatedText text='Blogs' /></h1>
       <div className='blogs-wrapper'>
         {blogsData.map((blog) => (
-          <BlogCard key={blog.id} blog={blog} />
+          <BlogCard key={blog.slug} blog={blog} />
         ))}
       </div>
     </div>
