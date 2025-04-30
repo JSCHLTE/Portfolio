@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import '../CSS/blog.css'
 import Bio from '../Comps/common/Bio'
 import BlogCard from '../Comps/common/blog/BlogCard';
-import { blogsData } from '../Comps/common/blog/blogsData'
 import AnimatedText from '../Comps/common/AnimatedText';
 
 const Blog = () => {
@@ -38,9 +37,7 @@ const Blog = () => {
     <div className="blog-right">
       <h1><AnimatedText text='Blogs' /></h1>
       <div className='blogs-wrapper'>
-        {blogsData.map((blog) => (
-          <BlogCard key={blog.slug} blog={blog} />
-        ))}
+        <BlogCard />
       </div>
     </div>
   </main>

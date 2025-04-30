@@ -50,7 +50,7 @@
     align-items: center;
 }
 
-.blog-meta-author, .blog-meta-likes {
+ .blog-meta-likes, .blog-meta-author-wrapper {
     margin-left: 0.5rem;
 }
 
@@ -92,6 +92,11 @@
     color: var(--permWhite);
 }
 
+.blogpage-likes.liked button{
+    background-color: #FF6961;
+    color: var(--permWhite);
+}
+
 .blogpage-likes i {
     margin-right: 0.25rem;
 }
@@ -107,6 +112,17 @@
 
 .blogpage-content p {
     margin-bottom: 1rem;
+}
+
+.blog-meta-author-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-meta-author-wrapper time {
+    font-size: 0.85rem;
+    font-style: italic;
+    opacity: 0.5;
 }
 
 
