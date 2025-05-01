@@ -4,7 +4,7 @@ import Markdown from 'react-markdown';
 import AnimatedText from '../AnimatedText';
 import FormatDate from '../FormatDate';
 import { useBlogs } from '../../../hooks/useBlogs';
-import { ref, runTransaction } from 'firebase/database';
+import { get, ref, update } from 'firebase/database';
 import { database } from '../../../firebase';
 
 const BlogPage = () => {
@@ -22,6 +22,18 @@ const BlogPage = () => {
   }, [slug]);
 
   useEffect(() => {
+    const path = `blogs/${slug}`;
+    const blogRef = ref(database, path);
+    get(blogRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log("✅ BLOG EXISTS at", path, snapshot.val());
+      } else {
+        console.error("❌ BLOG DOES NOT EXIST at", path);
+      }
+    });
+  }, [slug]);
+
+  useEffect(() => {
     if (!loading) {
       const blog = blogs.find((b) => b.slug === slug);
       if (blog) {
@@ -35,6 +47,7 @@ const BlogPage = () => {
   const blog = blogs.find((b) => b.slug === slug);
   if (!blog) return <div>Blog not found</div>;
 
+
   const handleLike = async () => {
     const blogRef = ref(database, `blogs/${slug}`);
     const likedMap = JSON.parse(localStorage.getItem("blogLikes")) || {};
@@ -42,12 +55,8 @@ const BlogPage = () => {
     const isLiking = !alreadyLiked;
 
     try {
-      await runTransaction(blogRef, (blog) => {
-        if (!blog) return blog;
-        blog.likes = blog.likes || 0;
-        blog.likes += isLiking ? 1 : -1;
-        if (blog.likes < 0) blog.likes = 0;
-        return blog;
+      await update(blogRef, { 
+        likes: isLiking ? likes + 1 : Math.max(0, likes - 1)
       });
 
       // Update local state
@@ -62,6 +71,9 @@ const BlogPage = () => {
       console.error("Error updating likes:", error);
     }
   };
+  
+  
+  
 
   return (
     <div className='blogpage-wrapper'>

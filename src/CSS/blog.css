@@ -21,6 +21,7 @@
     margin-left: 1rem;
     margin-bottom: 1rem;
     transition: transform 0.3s ease;
+    min-height: 200px;
 }
 
 .blog-item:hover {

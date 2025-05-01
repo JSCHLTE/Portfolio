@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import AnimatedText from '../AnimatedText'
 import { Link } from 'react-router-dom'
 import FormatDate from '../FormatDate';
@@ -10,7 +10,7 @@ const BlogCard = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div>
+    <>
     {blogs.map((blog) => (
       <Link className='blog-link' to={`/blogs/${blog.slug}`} key={blog.slug}>
       <article className='blog-item'>
@@ -33,7 +33,7 @@ const BlogCard = () => {
           </div>
       </article>
       </Link>
-    ))}</div>
+    ))}</>
   )
 }
 
