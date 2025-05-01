@@ -42,7 +42,7 @@
     transform: translateY(-5px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .bio-wrapper {
         flex-direction: row;
         align-items: center;

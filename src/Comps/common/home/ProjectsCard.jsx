@@ -26,8 +26,8 @@ const ProjectsCard = ({ project }) => {
             <p className='projects-card-desc'>{desc}</p>
         </div>
         <div className='projects-card-buttons'>
-            <a href={live} target='_blank' rel='noopener noreferrer' className='projects-card-button live'>View Live <i class="fa-solid fa-up-right-from-square"></i></a>
-            <a href={github} target='_blank' rel='noopener noreferrer' className='projects-card-button github'>View Repo <i class="fa-brands fa-github"></i></a>
+            <a href={live} target='_blank' rel='noopener noreferrer' className='projects-card-button live'>View Live <i className="fa-solid fa-up-right-from-square"></i></a>
+            <a href={github} target='_blank' rel='noopener noreferrer' className='projects-card-button github'>View Repo <i className="fa-brands fa-github"></i></a>
         </div>
     </div>
   )

@@ -56,6 +56,7 @@
     margin: 1rem 0;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
+    text-transform: uppercase;
 }
 
 .form-submit:hover, .login-button:hover {

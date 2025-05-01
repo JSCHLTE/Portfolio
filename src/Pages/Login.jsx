@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import AnimatedText from '../Comps/common/AnimatedText'
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
@@ -7,6 +10,20 @@ const Login = () => {
     username: '',
     password: ''
   });
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+
+    e.preventDefault();
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, loginValues.username, loginValues.password);
+      console.log("✅ Logged in:", userCredential.user);
+      navigate('/admin', { replace: true });
+    } catch (error) {
+      console.error("❌ Login failed:", error.message);
+    }
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -21,11 +38,11 @@ const Login = () => {
 
     <>
         <h1 className='login-title'><AnimatedText text='Login'/></h1>
-        <form id='loginForm'>
+        <form id='loginForm' onSubmit={handleLogin}>
           <div className='username-wrapper'>
             <label htmlFor='username'>
-              Username:
-              <input type="text" id='username' name='username' onChange={handleChange} value={loginValues.username}/>
+              Email:
+              <input type="email" id='username' name='username' onChange={handleChange} value={loginValues.username}/>
             </label>
           </div>
           <div className='password-wrapper'>
