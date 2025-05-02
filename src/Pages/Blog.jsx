@@ -4,7 +4,7 @@ import Bio from '../Comps/common/Bio'
 import BlogCard from '../Comps/common/blog/BlogCard';
 import AnimatedText from '../Comps/common/AnimatedText';
 
-const Blog = () => {
+const Blog = ({ user }) => {
 
   const useScrollLockOnLargeScreens = () => {
     useEffect(() => {
@@ -37,7 +37,7 @@ const Blog = () => {
     <div className="blog-right">
       <h1><AnimatedText text='Blogs' /></h1>
       <div className='blogs-wrapper'>
-        <BlogCard />
+        <BlogCard user={user}/>
       </div>
     </div>
   </main>

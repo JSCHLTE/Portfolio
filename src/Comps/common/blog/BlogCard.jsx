@@ -4,16 +4,21 @@ import { Link } from 'react-router-dom'
 import FormatDate from '../FormatDate';
 import { useBlogs } from '../../../hooks/useBlogs';
 
-const BlogCard = () => {
+const BlogCard = ({ user }) => {
 
   const { blogs, loading } = useBlogs();
   if (loading) return <p>Loading...</p>;
+
+  const handleDel = () => {
+    alert("Delete blog")
+  }
 
   return (
     <>
     {blogs.map((blog) => (
       <Link className='blog-link' to={`/blogs/${blog.slug}`} key={blog.slug}>
       <article className='blog-item'>
+      { user ? <div className='blog-delete' onClick={handleDel}><i className="fa-solid fa-trash"></i></div> : '' }
           <div className='blog-info'>
             <h3 className='blog-title'><AnimatedText text={blog.title} /></h3>
             <p className='blog-snippet'>{blog.snippet}</p>

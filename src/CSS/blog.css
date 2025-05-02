@@ -22,6 +22,7 @@
     justify-content: space-between;
     transition: transform 0.3s ease;
     min-height: 200px;
+    position: relative;
 }
 
 .blog-item:hover {
@@ -124,6 +125,27 @@
     font-size: 0.85rem;
     font-style: italic;
     opacity: 0.5;
+}
+
+.blog-delete {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.blog-delete {
+    width: 40px;
+    height: 40px;
+    background-color: #FF6B6B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.blog-delete:hover {
+    transform: scale(1.2);
 }
 
 
