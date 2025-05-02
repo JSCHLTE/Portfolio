@@ -31,6 +31,10 @@ function App() {
     setNavMenu(!navMenu)
   }
 
+  const resetUser = () => {
+    setUser(undefined)
+  }
+
   const ProtectedRoute = ({ children }) => {
   
     useEffect(() => {
@@ -48,7 +52,7 @@ function App() {
 
   return (
     <>
-    <Navbar handleTheme={handleTheme} mode={theme} handleBurger={handleBurger} navMenu={navMenu} navLogin={user}/>
+    <Navbar handleTheme={handleTheme} mode={theme} handleBurger={handleBurger} navMenu={navMenu} navLogin={user} resetUser={resetUser}/>
     <div className={`overlay ${navMenu ? `active` : ``}`} onClick={() => setNavMenu(false)}></div>
     <div className="content-wrapper">
     <ScrollToTop setNavMenu={setNavMenu}/>

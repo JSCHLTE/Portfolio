@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase'; // adjust path as needed
 
-const Navbar = ({ handleTheme, mode, handleBurger, navMenu, navLogin }) => {
+const Navbar = ({ handleTheme, mode, handleBurger, navMenu, navLogin, resetUser }) => {
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -25,7 +25,8 @@ const Navbar = ({ handleTheme, mode, handleBurger, navMenu, navLogin }) => {
     try {
       await signOut(auth);
       console.log("👋 Logged out");
-      navigate('/login'); // optionally redirect to login
+      navigate('/login');
+      resetUser();
     } catch (error) {
       console.error("Logout error:", error.message);
     }
