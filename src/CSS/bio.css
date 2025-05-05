@@ -24,6 +24,12 @@
     margin-bottom: 0.5rem;
 }
 
+@media (max-width: 396px) {
+    .bio-info-name {
+        font-size: 1.25rem;
+    }
+}
+
 .bio-links-wrapper {
     margin-top: 1rem;
 }

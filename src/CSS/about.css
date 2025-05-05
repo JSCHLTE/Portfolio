@@ -14,6 +14,10 @@
     margin-top: 1rem;
 }
 
+.work-wrapper h2 {
+    font-size: 2rem;
+}
+
 .works-item {
     background-color: var(--darkGrey);
     margin: 1rem 0;
@@ -23,6 +27,10 @@
 
 .works-item.active {
     border: 1px solid var(--theme);
+}
+
+.works-title {
+    font-size: 1.35rem !important;
 }
 
 .works-meta {
