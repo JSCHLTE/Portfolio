@@ -13,29 +13,19 @@ import BlogPage from "./Comps/common/blog/BlogPage"
 import BlogDashboard from "./Comps/common/blog/BlogDashboard"
 import Login from "./Pages/Login"
 import Overlay from "./Comps/common/Overlay";
-import { ref, get, set } from 'firebase/database';
-import { database } from './firebase';
 
 function App() {
-
-  const [theme, setTheme] = useState(true);
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? JSON.parse(savedTheme) : true;
+  });
   const [navMenu, setNavMenu] = useState(false);
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    const fetchMode = async () => {
-      const modeRef = ref(database, 'lightMode');
-      const snapshot = await get(modeRef);
-      if (snapshot.exists()) {
-        setTheme(snapshot.val());
-      }
-    };
-    fetchMode();
-  }, []);  
-
-  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme));
     theme ? document.body.classList.remove("light") : document.body.classList.add("light"); 
-  }, [theme])
+  }, [theme]);
 
   const handleBurger = () => {
     setNavMenu(!navMenu)
@@ -50,7 +40,6 @@ function App() {
   }
 
   const ProtectedRoute = ({ children }) => {
-  
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
         setUser(firebaseUser);
@@ -64,26 +53,8 @@ function App() {
     return children;
   };
 
-  const handleTheme = async () => {
-    try {
-      const modeRef = ref(database, 'lightMode');
-  
-      // Get the current value
-      const snapshot = await get(modeRef);
-      const current = snapshot.exists() ? snapshot.val() : false;
-  
-      const newMode = !current;
-  
-      // Save to Firebase
-      await set(modeRef, newMode);
-  
-      // ✅ Update local state
-      setTheme(newMode);
-  
-    } catch (err) {
-      console.error("Error switching theme:", err);
-      alert("Something went wrong.");
-    }
+  const handleTheme = () => {
+    setTheme(prev => !prev);
   };
 
   return (
@@ -103,7 +74,6 @@ function App() {
             <BlogDashboard />
           </ProtectedRoute>
         } />
-
       </Routes>
     </div>
     </>
