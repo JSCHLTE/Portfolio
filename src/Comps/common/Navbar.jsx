@@ -44,6 +44,7 @@ const Navbar = ({ handleTheme, mode, handleBurger, navMenu, navLogin, resetUser 
             <li className='nav-link'><Link to="/">Home</Link></li>
             <li className='nav-link'><Link to="/about">About</Link></li>
             <li className='nav-link'><Link to="/blog">Blog</Link></li>
+            <li className='nav-link'><Link to="/contact">Contact</Link></li>
             {navLogin ? <li className='nav-link'><Link to="/admin">Dashboard</Link></li> : ''}
             {navLogin ? <li className='nav-link' onClick={handleLogout}><Link to="#">Logout</Link></li> : ''}
           </ul>

@@ -1,9 +1,9 @@
-.home-wrapper, .about-wrapper, .blog-wrapper {
+.home-wrapper, .about-wrapper, .blog-wrapper, .contact-wrapper {
     display: flex;
     justify-content: space-between;
 }
 
-.home-left, .about-left, .blog-left {
+.home-left, .about-left, .blog-left, .contact-left {
     flex: 1;
     background-color: var(--darkGrey);
     max-width: 275px;
@@ -11,25 +11,32 @@
     height: fit-content;
 }
 
-.home-right, .about-right, .blog-right {
+.home-right, .about-right, .blog-right, .contact-right {
     flex: 2;
     overflow-y: auto;
     height: 80vh;
+    margin-left: 1rem;
 }
 
   .projects-wrapper, .blogs-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
 }
 
 @media (max-width: 650px) {
-    .projects-wrapper, .blogs-wrapper {
+    .projects-wrapper, .blogs-wrapper, .contact-wrapper {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .home-right, .about-right, .blog-right, .contact-right {
+        flex: 2;
+        overflow-y: auto;
+        height: 80vh;
     }
 }
 
 .projects-card-wrapper {
-    margin: 0 0 1rem 1rem;
     background-color: var(--darkGrey);
     border-radius: 20px;
     position: relative;
@@ -145,12 +152,12 @@
 }
 
 @media (max-width: 900px) {
-    .home-wrapper, .about-wrapper, .blog-wrapper {
+    .home-wrapper, .about-wrapper, .blog-wrapper, .contact-wrapper {
         display: flex;
         flex-direction: column;
     }
 
-    .home-left, .about-left, .blog-left {
+    .home-left, .about-left, .blog-left, .contact-left {
         flex: 1;
         background-color: var(--darkGrey);
         max-width: none;
@@ -158,21 +165,8 @@
         height: fit-content;
     }
 
-    .home-right, .about-right, .blog-right {
-        margin-top: 2rem;
-    }
-
-    .projects-card-wrapper {
-        margin: 0 1rem 1rem 0;
-    }
-
-    .projects-card-wrapper:nth-child(even) {
-        margin-right: 0;
-    }
-}
-
-@media (max-width: 624px) {
-    .projects-card-wrapper {
-        margin: 1rem 0;
+    .home-right, .about-right, .blog-right, .contact-right {
+        margin-top: 1rem;
+        margin-left: 0;
     }
 }

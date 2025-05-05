@@ -7,15 +7,15 @@
     margin: 1rem 0;
 }
 
-.form-title-wrapper label, .form-body-wrapper textarea, .username-wrapper input, .password-wrapper input {
+.form-title-wrapper label, .form-body-wrapper textarea, .username-wrapper input, .password-wrapper input, #contactForm label {
     display: flex;
     flex-direction: column;
 }
 
-.form-title-wrapper input, #username, #password {
+.form-title-wrapper input, #username, #password, #contactForm input {
     margin-top: 0.25rem;
     background-color: var(--darkGrey);
-    border: 1px solid var(--black);
+    border: 1px solid var(--permBlack);
     border-radius: 5px;
     height: 45px;
     padding: 0 1rem;
@@ -23,14 +23,14 @@
     font-size: 1rem;
 }
 
-.form-body-wrapper textarea {
+.form-body-wrapper textarea, #contactForm textarea {
     width: 100%;
     max-width: 100%;
     min-height: 325px;
     resize: none;
     margin-top: 0.25rem;
     background-color: var(--darkGrey);
-    border: 1px solid var(--black);
+    border: 1px solid var(--permBlack);
     border-radius: 5px;
     padding: 0.75rem;
     color: var(--white);
@@ -38,15 +38,15 @@
     font-family: inherit;
 }
 
-.form-title-wrapper input:hover,  .form-body-wrapper textarea:hover {
+.form-title-wrapper input:hover,  .form-body-wrapper textarea:hover, #contactForm textarea:hover, #contactForm input:hover {
     border-color: var(--theme);
 }
 
-.form-title-wrapper input:focus, .form-body-wrapper textarea:focus {
+.form-title-wrapper input:focus, .form-body-wrapper textarea:focus, #contactForm textarea:focus, #contactForm input:focus {
     outline: solid 2px var(--theme);
 }
 
-.form-submit, .login-button {
+.form-submit, .login-button, .contact-button {
     width: 125px;
     height: 45px;
     background-color: var(--theme);
@@ -59,6 +59,6 @@
     text-transform: uppercase;
 }
 
-.form-submit:hover, .login-button:hover {
+.form-submit:hover, .login-button:hover, .contact-button:hover {
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
 }

@@ -7,6 +7,7 @@ import Navbar from "./Comps/common/Navbar"
 import Home from "./Pages/Home"
 import Blog from "./Pages/Blog"
 import About from "./Pages/About"
+import Contact from "./Pages/Contact";
 import AnimatedText from "./Comps/common/AnimatedText"
 import ScrollToTop from "./Comps/common/ScrollToTop"
 import BlogPage from "./Comps/common/blog/BlogPage"
@@ -67,6 +68,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/about" element={<About />}/>
         <Route path="/blog" element={<Blog user={user}/>}/>
+        <Route path="/contact" element={<Contact />}/>
         <Route path='/blogs/:slug' element={<BlogPage />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/admin' element={
