@@ -7,8 +7,8 @@ import BlogCard from '../Comps/common/blog/BlogCard';
 import AnimatedText from '../Comps/common/AnimatedText';
 
 const Blog = ({ user }) => {
-
   const [deleteWarning, setDeleteWarning] = useState(false);
+  const [blogToDelete, setBlogToDelete] = useState(null);
 
   const useScrollLockOnLargeScreens = () => {
     useEffect(() => {
@@ -33,20 +33,14 @@ const Blog = ({ user }) => {
 
   useScrollLockOnLargeScreens();
 
-  const deleteWarn = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    setDeleteWarning(prev => !prev)
-  }
-
-  const deleteBlog = () => {
-    setDeleteWarning(false)
-    alert('Delte blog here')
+  const deleteWarn = (slug) => {
+    setBlogToDelete(slug);
+    setDeleteWarning(true);
   }
 
   return (
     <>
-    {deleteWarning && user ? <BlogDelete setDeleteWarning={setDeleteWarning} deleteBlog={deleteBlog}/> : ''}
+    {deleteWarning && user ? <BlogDelete setDeleteWarning={setDeleteWarning} deleteBlog={blogToDelete}/> : ''}
     {deleteWarning && user ? <Overlay setDeleteWarning={setDeleteWarning} /> : ''}
       <main className="blog-wrapper">
       <div className="blog-left">

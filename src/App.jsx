@@ -13,6 +13,8 @@ import BlogPage from "./Comps/common/blog/BlogPage"
 import BlogDashboard from "./Comps/common/blog/BlogDashboard"
 import Login from "./Pages/Login"
 import Overlay from "./Comps/common/Overlay";
+import { ref, get, set } from 'firebase/database';
+import { database } from './firebase';
 
 function App() {
 
@@ -20,9 +22,16 @@ function App() {
   const [navMenu, setNavMenu] = useState(false);
   const [user, setUser] = useState(undefined);
 
-  const handleTheme = (mode) => {
-    setTheme(mode);
-  }
+  useEffect(() => {
+    const fetchMode = async () => {
+      const modeRef = ref(database, 'lightMode');
+      const snapshot = await get(modeRef);
+      if (snapshot.exists()) {
+        setTheme(snapshot.val());
+      }
+    };
+    fetchMode();
+  }, []);  
 
   useEffect(() => {
     theme ? document.body.classList.remove("light") : document.body.classList.add("light"); 
@@ -53,6 +62,28 @@ function App() {
     if (!user) return <Navigate to="/login" replace />;
   
     return children;
+  };
+
+  const handleTheme = async () => {
+    try {
+      const modeRef = ref(database, 'lightMode');
+  
+      // Get the current value
+      const snapshot = await get(modeRef);
+      const current = snapshot.exists() ? snapshot.val() : false;
+  
+      const newMode = !current;
+  
+      // Save to Firebase
+      await set(modeRef, newMode);
+  
+      // ✅ Update local state
+      setTheme(newMode);
+  
+    } catch (err) {
+      console.error("Error switching theme:", err);
+      alert("Something went wrong.");
+    }
   };
 
   return (
