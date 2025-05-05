@@ -7,6 +7,8 @@
     --theme: #5A31B0;
     --permBlack: #000;
     --permWhite: #fff;
+    --red: #bd2c00;
+    --green: #00bd2c;
 }
 
 .light {
@@ -15,6 +17,4 @@
     --lightBg: #121212;
     --black: #fff;
     --white: #000; 
-    --permBlack: #000;
-    --permWhite: #fff;   
 }

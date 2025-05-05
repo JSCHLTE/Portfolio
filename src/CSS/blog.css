@@ -136,19 +136,102 @@
 .blog-delete {
     width: 40px;
     height: 40px;
-    background-color: #FF6B6B;
+    background-color: var(--red);
+    color: var(--permWhite);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     transition: transform 0.3s ease;
+    font-size: 1.15rem;
 }
 
 .blog-delete:hover {
     transform: scale(1.2);
 }
 
+.blog-delete-wrapper {
+    z-index: 6;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: var(--darkGrey);
+    padding: 1.5rem;
+    border-radius: 20px;
+    width: 90%;
+    min-width: 275px;
+    max-width: 425px;
+}
 
+.blog-delete-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--lightBg);
+    padding-bottom: 0.5rem;
+}
+
+.blog-delete-icon {
+    background-color: var(--darkBg);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.blog-delete-icon:hover {
+    background-color: var(--red);
+    color: var(--permWhite);
+}
+
+.blog-delete-body {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.blog-delete-buttons {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.blog-delete-buttons button {
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    border: 3px solid var(--white);
+    color: var(--white);
+    background-color: transparent;
+    text-transform: uppercase;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.delete-yes {
+    border-color: var(--red) !important;
+}
+
+.delete-yes:hover {
+    background-color: var(--red);
+}
+
+.delete-no {
+    border-color: var(--green) !important;
+}
+
+.delete-no:hover {
+    background-color: var(--green) !important;
+}
+
+.delete-no:hover, .delete-yes:hover {
+    color: var(--permWhite);
+    font-weight: bold;
+}
 
 @media (max-width: 900px) {
     .blog-right h1, .blogs-wrapper {

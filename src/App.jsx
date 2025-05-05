@@ -12,6 +12,7 @@ import ScrollToTop from "./Comps/common/ScrollToTop"
 import BlogPage from "./Comps/common/blog/BlogPage"
 import BlogDashboard from "./Comps/common/blog/BlogDashboard"
 import Login from "./Pages/Login"
+import Overlay from "./Comps/common/Overlay";
 
 function App() {
 
@@ -35,6 +36,10 @@ function App() {
     setUser(undefined)
   }
 
+  const closeMenu = () => {
+    setNavMenu(false);
+  }
+
   const ProtectedRoute = ({ children }) => {
   
     useEffect(() => {
@@ -53,7 +58,7 @@ function App() {
   return (
     <>
     <Navbar handleTheme={handleTheme} mode={theme} handleBurger={handleBurger} navMenu={navMenu} navLogin={user} resetUser={resetUser}/>
-    <div className={`overlay ${navMenu ? `active` : ``}`} onClick={() => setNavMenu(false)}></div>
+    {navMenu ? <Overlay closeMenu={closeMenu}/> : ''}
     <div className="content-wrapper">
     <ScrollToTop setNavMenu={setNavMenu}/>
       <Routes>
