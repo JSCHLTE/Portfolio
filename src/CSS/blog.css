@@ -116,6 +116,21 @@
     margin-bottom: 1rem;
 }
 
+.blogpage-content a {
+    text-decoration: none;
+    color: var(--white);
+    background-image: linear-gradient(var(--white), var(--white)), linear-gradient(var(--aBg), var(--aBg));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 2px, 100% 2px;
+    transition: background-size .3s cubic-bezier(0,0,.33,.93);
+    padding-bottom: 2px;
+}
+
+.blogpage-content a:hover {
+    background-size: 100% 2px, 100% 2px;
+}
+
 .blog-meta-author-wrapper {
     display: flex;
     flex-direction: column;

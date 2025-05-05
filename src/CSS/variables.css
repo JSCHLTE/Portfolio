@@ -9,6 +9,7 @@
     --permWhite: #fff;
     --red: #bd2c00;
     --green: #00bd2c;
+    --aBg: rgba(255, 255, 255, 0.3);
 }
 
 .light {
@@ -17,4 +18,5 @@
     --lightBg: #121212;
     --black: #fff;
     --white: #000; 
+    --aBg: rgba(0, 0, 0, 0.3);
 }

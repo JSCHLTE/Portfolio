@@ -60,7 +60,7 @@ const BlogPage = () => {
       });
 
       // Update local state
-      setLikes((prev) => Math.max(0, isLiking ? prev + 1 : prev - 1));
+      setLikes((prev) => Math.max(0, isLiking ? prev + 1 - 1 : prev - 1));
       setCheckLiked(isLiking);
 
       // Update localStorage
