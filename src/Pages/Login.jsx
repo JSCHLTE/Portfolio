@@ -42,13 +42,13 @@ const Login = () => {
           <div className='username-wrapper'>
             <label htmlFor='username'>
               Email:
-              <input type="email" id='username' name='username' onChange={handleChange} value={loginValues.username}/>
+              <input type="email" id='username' name='username' onChange={handleChange} value={loginValues.username} required/>
             </label>
           </div>
           <div className='password-wrapper'>
             <label htmlFor='password'>
               Password:
-              <input type="password" id='password' name='password' onChange={handleChange} value={loginValues.password}/>
+              <input type="password" id='password' name='password' onChange={handleChange} value={loginValues.password} required/>
             </label>
           </div>
           <button className='login-button'>Login</button>

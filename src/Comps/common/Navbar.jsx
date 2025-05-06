@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, NavLink } from 'react-router-dom'
 import Theme from './Theme'
 import '../../CSS/navbar.css'
 import { useEffect, useState } from 'react'
@@ -41,11 +41,11 @@ const Navbar = ({ handleTheme, mode, handleBurger, navMenu, navLogin, resetUser 
         
         <div className='nav-right'>
           <ul className={`nav-links ${navMenu ? `active` : ``}`}>
-            <li className='nav-link'><Link to="/">Home</Link></li>
-            <li className='nav-link'><Link to="/about">About</Link></li>
-            <li className='nav-link'><Link to="/blog">Blog</Link></li>
-            <li className='nav-link'><Link to="/contact">Contact</Link></li>
-            {navLogin ? <li className='nav-link'><Link to="/admin">Dashboard</Link></li> : ''}
+            <li className='nav-link'><NavLink to="/">Home</NavLink></li>
+            <li className='nav-link'><NavLink to="/about">About</NavLink></li>
+            <li className='nav-link'><NavLink to="/blog">Blog</NavLink></li>
+            <li className='nav-link'><NavLink to="/contact">Contact</NavLink></li>
+            {navLogin ? <li className='nav-link'><NavLink to="/admin">Dashboard</NavLink></li> : ''}
             {navLogin ? <li className='nav-link' onClick={handleLogout}><Link to="#">Logout</Link></li> : ''}
           </ul>
           

@@ -66,6 +66,7 @@ const BlogDashboard = () => {
               name='blogTitle'
               value={formValues.blogTitle}
               onChange={handleChange}
+              required
             />
           </label>
         </div>
@@ -77,6 +78,7 @@ const BlogDashboard = () => {
               name='blogBody'
               value={formValues.blogBody}
               onChange={handleChange}>
+              required
             </textarea>
           </label>
         </div>
