@@ -151,10 +151,18 @@
     border-color: var(--theme);
 }
 
+.work-wrapper, .projects-wrapper, .blogs-wrapper, .contact-right {
+    padding-bottom: 5rem;
+}
+
 @media (max-width: 900px) {
     .home-wrapper, .about-wrapper, .blog-wrapper, .contact-wrapper {
         display: flex;
         flex-direction: column;
+    }
+
+    .work-wrapper, .projects-wrapper, .blogs-wrapper, .contact-right {
+        padding-bottom: unset;
     }
 
     .home-left, .about-left, .blog-left, .contact-left {
@@ -166,7 +174,7 @@
     }
 
     .home-right, .about-right, .blog-right, .contact-right {
-        margin-top: 1rem;
+        margin-top: 2rem;
         margin-left: 0;
     }
 }
