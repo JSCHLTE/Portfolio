@@ -1,5 +1,6 @@
-import { projectsThumbData } from "./projectsThumbData"
-import ProjectsCard from "./ProjectsCard"
+import { projectsThumbData } from "../Comps/common/projects/projectsThumbData"
+import ProjectsCard from "../Comps/common/projects/ProjectsCard"
+import '../CSS/projects.css'
 
 const Projects = () => {
   return (

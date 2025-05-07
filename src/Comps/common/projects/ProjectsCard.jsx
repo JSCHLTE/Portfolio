@@ -1,11 +1,10 @@
-import React from 'react'
-import AnimatedText from '../AnimatedText';
+import AnimatedText from '../../../utils/AnimatedText';
 
 const ProjectsCard = ({ project }) => {
     const { thumbnail, title, desc, tags, github, live } = project
 
     function formatClassName(tag) {
-        return tag.trim().toLowerCase().replace(/[^a-z0-9\-]/g, '-');
+        return tag.trim().toLowerCase().replace(/[^a-z0-9-]/g, '-');
     }    
 
   return (

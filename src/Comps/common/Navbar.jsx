@@ -1,9 +1,9 @@
 import { Link, useNavigate, NavLink } from 'react-router-dom'
-import Theme from './Theme'
-import '../../CSS/navbar.css'
 import { useEffect, useState } from 'react'
 import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase'; // adjust path as needed
+import { auth } from '../../firebase';
+import Theme from './Theme'
+import '../../CSS/navbar.css'
 
 const Navbar = ({ handleTheme, mode, handleBurger, navMenu, navLogin, resetUser }) => {
 
@@ -36,7 +36,7 @@ const Navbar = ({ handleTheme, mode, handleBurger, navMenu, navLogin, resetUser 
     <nav>
       <div className={`nav-inner ${isScrolled ? `active` : ``}`}>
         <div className="nav-logo-wrapper center-flex">
-          <Link to="/"><img src="/images/pfp.webp" alt="Graphic of the letters J and S in purple"/></Link>
+          <Link to="/"><img src="/images/blogpfp.webp" alt="Stylized portrait of Jordan wearing sunglasses, created with a swirling, abstract filter effect that resembles painted brush strokes. The sunglasses reflect the word 'Vibes' in a bold, colorful font."/></Link>
         </div>
         
         <div className='nav-right'>

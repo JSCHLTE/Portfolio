@@ -1,0 +1,41 @@
+.layout-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.layout-left {
+    flex: 1;
+    background-color: var(--darkGrey);
+    max-width: 275px;
+    border-radius: 20px;
+    height: fit-content;
+}
+
+.layout-right {
+    flex: 2;
+    overflow-y: auto;
+    height: 80vh;
+    margin-left: 1rem;
+    padding-bottom: 5rem;
+}
+
+@media (max-width: 900px) {
+    .layout-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .layout-left {
+        flex: 1;
+        background-color: var(--darkGrey);
+        max-width: none;
+        border-radius: 20px;
+        height: fit-content;
+    }
+
+    .layout-right {
+        margin-top: 2rem;
+        margin-left: 0;
+        padding-bottom: unset;
+    }
+}

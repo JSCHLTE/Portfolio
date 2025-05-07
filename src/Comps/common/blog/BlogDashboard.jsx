@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import AnimatedText from '../AnimatedText';
-import '../../../CSS/form.css';
+import { useState } from 'react';
 import { ref, set } from 'firebase/database';
 import { database } from '../../../firebase';
 import { slugify } from '../../../utils/slugify'; // make sure this exists!
+import AnimatedText from '../../../utils/AnimatedText';
+import '../../../CSS/form.css';
 
 const BlogDashboard = () => {
   const [formValues, setFormValues] = useState({
@@ -38,7 +38,7 @@ const BlogDashboard = () => {
       slug: slug,
       likes: 0,
       date: new Date().toISOString().split('T')[0],
-      pfp: "/images/pfp.webp",
+      pfp: "/images/blogpfp.webp",
       snippet: cleanSnippet
     };
 

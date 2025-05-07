@@ -1,15 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 const AnimatedText = ({ text }) => {
 
     const [isVisible, setIsVisible] = useState(false);
     const referenceContainer = useRef();
 
-    const options = {
-        threshold: 1.0,
-    }
-
     useEffect(() => {
+
+        const options = {
+            threshold: 1.0,
+        }
+
         const observer = new IntersectionObserver(([entry]) => {
             if(entry.isIntersecting) {
                 setIsVisible(true)

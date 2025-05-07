@@ -1,37 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import BlogDelete from '../Comps/common/blog/BlogDelete';
 import Overlay from '../Comps/common/Overlay';
-import '../CSS/blog.css'
-import Bio from '../Comps/common/Bio'
 import BlogCard from '../Comps/common/blog/BlogCard';
-import AnimatedText from '../Comps/common/AnimatedText';
+import AnimatedText from '../utils/AnimatedText';
+import '../CSS/blog.css'
 
 const Blog = ({ user }) => {
+
   const [deleteWarning, setDeleteWarning] = useState(false);
   const [blogToDelete, setBlogToDelete] = useState(null);
-
-  const useScrollLockOnLargeScreens = () => {
-    useEffect(() => {
-      const handleResize = () => {
-        if (window.innerWidth > 768) {
-          window.scrollTo(0, 0);
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = 'auto';
-        }
-      };
-  
-      handleResize(); // Call on mount
-      window.addEventListener('resize', handleResize);
-  
-      return () => {
-        window.removeEventListener('resize', handleResize);
-        document.body.style.overflow = 'auto'; // Clean up
-      };
-    }, []);
-  };  
-
-  useScrollLockOnLargeScreens();
 
   const deleteWarn = (slug) => {
     setBlogToDelete(slug);
@@ -42,17 +19,12 @@ const Blog = ({ user }) => {
     <>
     {deleteWarning && user ? <BlogDelete setDeleteWarning={setDeleteWarning} deleteBlog={blogToDelete}/> : ''}
     {deleteWarning && user ? <Overlay setDeleteWarning={setDeleteWarning} /> : ''}
-      <main className="blog-wrapper">
-      <div className="blog-left">
-        <Bio />
-      </div>
-      <div className="blog-right">
+      <div className="blog-wrapper">
         <h1><AnimatedText text='Blogs' /></h1>
         <div className='blogs-wrapper'>
           <BlogCard user={user} deleteWarn={deleteWarn}/>
         </div>
-      </div>
-    </main>
+    </div>
   </>
   )
 }

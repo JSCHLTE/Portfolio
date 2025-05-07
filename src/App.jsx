@@ -4,16 +4,16 @@ import { auth } from "./firebase"
 import { onAuthStateChanged } from 'firebase/auth';
 import { Navigate } from "react-router-dom";
 import Navbar from "./Comps/common/Navbar"
-import Home from "./Pages/Home"
+import Projects from "./Pages/Projects"
 import Blog from "./Pages/Blog"
 import About from "./Pages/About"
 import Contact from "./Pages/Contact";
-import AnimatedText from "./Comps/common/AnimatedText"
-import ScrollToTop from "./Comps/common/ScrollToTop"
+import ScrollToTop from "./utils/ScrollToTop"
 import BlogPage from "./Comps/common/blog/BlogPage"
 import BlogDashboard from "./Comps/common/blog/BlogDashboard"
 import Login from "./Pages/Login"
 import Overlay from "./Comps/common/Overlay";
+import Layout from "./Layout"
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -65,10 +65,12 @@ function App() {
     <div className="content-wrapper">
     <ScrollToTop setNavMenu={setNavMenu}/>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/about" element={<About />}/>
-        <Route path="/blog" element={<Blog user={user}/>}/>
-        <Route path="/contact" element={<Contact />}/>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Projects />}/>
+        <Route path="about" element={<About />}/>
+        <Route path="blog" element={<Blog user={user}/>}/>
+        <Route path="contact" element={<Contact />}/>
+      </Route>
         <Route path='/blogs/:slug' element={<BlogPage />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/admin' element={

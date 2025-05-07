@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Markdown from 'react-markdown';
-import AnimatedText from '../AnimatedText';
-import FormatDate from '../FormatDate';
+import AnimatedText from '../../../utils/AnimatedText';
+import FormatDate from '../../../utils/FormatDate';
 import { useBlogs } from '../../../hooks/useBlogs';
 import { get, ref, update } from 'firebase/database';
 import { database } from '../../../firebase';

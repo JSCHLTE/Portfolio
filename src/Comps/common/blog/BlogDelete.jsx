@@ -1,4 +1,3 @@
-import React from 'react'
 import { ref, remove } from 'firebase/database';
 import { database } from '../../../firebase';
 import { useBlogs } from '../../../hooks/useBlogs';

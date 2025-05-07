@@ -1,24 +1,4 @@
-.home-wrapper, .about-wrapper, .blog-wrapper, .contact-wrapper {
-    display: flex;
-    justify-content: space-between;
-}
-
-.home-left, .about-left, .blog-left, .contact-left {
-    flex: 1;
-    background-color: var(--darkGrey);
-    max-width: 275px;
-    border-radius: 20px;
-    height: fit-content;
-}
-
-.home-right, .about-right, .blog-right, .contact-right {
-    flex: 2;
-    overflow-y: auto;
-    height: 80vh;
-    margin-left: 1rem;
-}
-
-  .projects-wrapper, .blogs-wrapper {
+.projects-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -52,7 +32,7 @@
     margin-top: 0;
 }
 
-.home-right img {
+.projects-card-thumbnail-wrapper img {
     width: 100%;
     height: 250px;
     object-fit: cover;
@@ -120,27 +100,22 @@
     text-align: center;
     text-decoration: none;
     margin-bottom: 0.5rem;
+    background-color: var(--lightBg);
+    color: var(--black);
+    border: 2px solid var(--LightBg);
 }
 
-.projects-card-button[href=""] {
-    display: none;
+.projects-card-button:hover {
+    background-color: var(--theme);
+    color: var(--permWhite);
 }
 
 .projects-card-button.live {
     margin-right: 0.5rem;
-    background-color: var(--permWhite);
-    color: var(--permBlack);
-    border: 2px solid var(--permWhite);
 }
 
-.projects-card-button.live i {
-    font-size: 0.85rem;
-}
-
-.projects-card-button.github {
-    background-color: var(--permBlack);
-    color: var(--permWhite);
-    border: 2px solid var(--permBlack);
+.projects-card-button[href=""] {
+    display: none;
 }
 
 .projects-card-button i {
@@ -149,32 +124,4 @@
 
 .projects-card-button:hover {
     border-color: var(--theme);
-}
-
-.work-wrapper, .projects-wrapper, .blogs-wrapper, .contact-right {
-    padding-bottom: 5rem;
-}
-
-@media (max-width: 900px) {
-    .home-wrapper, .about-wrapper, .blog-wrapper, .contact-wrapper {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .work-wrapper, .projects-wrapper, .blogs-wrapper, .contact-right {
-        padding-bottom: unset;
-    }
-
-    .home-left, .about-left, .blog-left, .contact-left {
-        flex: 1;
-        background-color: var(--darkGrey);
-        max-width: none;
-        border-radius: 20px;
-        height: fit-content;
-    }
-
-    .home-right, .about-right, .blog-right, .contact-right {
-        margin-top: 2rem;
-        margin-left: 0;
-    }
 }

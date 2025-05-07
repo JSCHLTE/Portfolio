@@ -1,10 +1,7 @@
-import React from 'react'
-import AnimatedText from '../AnimatedText'
 import { Link } from 'react-router-dom'
-import FormatDate from '../FormatDate';
 import { useBlogs } from '../../../hooks/useBlogs';
-import { ref, remove } from 'firebase/database';
-import { database } from '../../../firebase';
+import AnimatedText from '../../../utils/AnimatedText'
+import FormatDate from '../../../utils/FormatDate';
 
 const BlogCard = ({ user, deleteWarn }) => {
 

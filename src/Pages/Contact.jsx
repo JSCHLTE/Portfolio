@@ -1,35 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import Bio from '../Comps/common/Bio'
-import '../CSS/bio.css'
+import { useState } from 'react'
+import AnimatedText from '../utils/AnimatedText'
 import '../CSS/contact.css'
-import AnimatedText from '../Comps/common/AnimatedText'
-
 
 const Contact = () => {
-
-    const useScrollLockOnLargeScreens = () => {
-    
-        useEffect(() => {
-          const handleResize = () => {
-            if (window.innerWidth > 768) {
-              window.scrollTo(0, 0);
-              document.body.style.overflow = 'hidden';
-            } else {
-              document.body.style.overflow = 'auto';
-            }
-          };
-      
-          handleResize(); // Call on mount
-          window.addEventListener('resize', handleResize);
-      
-          return () => {
-            window.removeEventListener('resize', handleResize);
-            document.body.style.overflow = 'auto'; // Clean up
-          };
-        }, []);
-      };  
-    
-      useScrollLockOnLargeScreens();
 
       const [formValues, setFormValues] = useState({
         contactName: '',
@@ -49,10 +22,6 @@ const Contact = () => {
 
   return (
     <div className="contact-wrapper">
-    <div className="contact-left">
-      <Bio />
-    </div>
-    <div className="contact-right">
         <h1><AnimatedText text="Contact Me"/></h1>
         <form action="https://formsubmit.co/email.jordanschulte@gmail.com" method="POST" id='contactForm'>
             <label htmlFor='contactName'>
@@ -74,7 +43,6 @@ const Contact = () => {
             <button className='contact-button'>Send Message</button>
         </form>
     </div>
-  </div>
   )
 }
 

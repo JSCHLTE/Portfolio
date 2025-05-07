@@ -5,12 +5,9 @@
 
 .blogs-wrapper {
     margin-top: 1rem;
-    margin-left: 1rem;
     gap: 1rem;
-}
-
-.blog-right h1 {
-    margin-left: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .blog-item {
@@ -249,7 +246,13 @@
 }
 
 @media (max-width: 900px) {
-    .blog-right h1, .blogs-wrapper {
+    .blogs-wrapper {
         margin-left: 0;
+    }
+}
+
+@media (max-width: 650px) {
+    .blogs-wrapper {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

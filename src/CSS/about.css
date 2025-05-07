@@ -2,10 +2,6 @@
     font-size: 2rem;
 }
 
-.about-right {
-    padding: 0 0 0 1rem;
-}
-
 .aboutme-wrapper p {
     margin-top: 1rem;
 }
@@ -40,10 +36,4 @@
 .works-desc {
     margin-top: 1rem;
     margin-left: 1rem;
-}
-
-@media (max-width: 768px) {
-    .about-right {
-        padding: 0;
-    }
 }

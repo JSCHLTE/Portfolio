@@ -1,5 +1,3 @@
-import React from 'react'
-
 const FormatDate = ({ date }) => {
 
     const [year, month, day] = date.split("-");
