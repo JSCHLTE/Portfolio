@@ -24,7 +24,6 @@ const Navbar = ({ handleTheme, mode, handleBurger, navMenu, navLogin, resetUser 
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      console.log("👋 Logged out");
       navigate('/login');
       resetUser();
     } catch (error) {

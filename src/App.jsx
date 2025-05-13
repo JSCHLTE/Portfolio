@@ -40,6 +40,21 @@ function App() {
     setNavMenu(false);
   }
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setNavMenu(false);
+      }
+    };
+  
+    window.addEventListener("resize", handleResize);
+  
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  
+
   const ProtectedRoute = ({ children }) => {
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {

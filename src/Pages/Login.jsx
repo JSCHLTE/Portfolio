@@ -18,7 +18,6 @@ const Login = () => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, loginValues.username, loginValues.password);
-      console.log("✅ Logged in:", userCredential.user);
       navigate('/admin', { replace: true });
     } catch (error) {
       console.error("❌ Login failed:", error.message);
