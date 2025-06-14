@@ -21,6 +21,7 @@ const Contact = () => {
       }
 
   return (
+    <>
     <div className="contact-wrapper">
         <h1><AnimatedText text="Contact Me"/></h1>
         <form action="https://formsubmit.co/email.jordanschulte@gmail.com" method="POST" id='contactForm'>
@@ -43,6 +44,7 @@ const Contact = () => {
             <button className='contact-button'>Send Message</button>
         </form>
     </div>
+    </>
   )
 }
 

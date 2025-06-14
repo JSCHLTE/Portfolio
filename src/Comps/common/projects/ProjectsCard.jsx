@@ -10,9 +10,6 @@ const ProjectsCard = ({ project }) => {
 
   return (
     <>
-    <Helmet>
-        <link rel="preload" as="image" href={thumbnail} />
-    </Helmet>
     <div className='projects-card-wrapper'>
         <div className='projects-card-thumbnail-wrapper'>
             <div className='projects-card-tags-wrapper'>
