@@ -1,4 +1,5 @@
 import AnimatedText from '../../../utils/AnimatedText';
+import { Helmet } from 'react-helmet';
 
 const ProjectsCard = ({ project }) => {
     const { thumbnail, title, desc, tags, github, live } = project
@@ -8,6 +9,10 @@ const ProjectsCard = ({ project }) => {
     }    
 
   return (
+    <>
+    <Helmet>
+        <link rel="preload" as="image" href={thumbnail} />
+    </Helmet>
     <div className='projects-card-wrapper'>
         <div className='projects-card-thumbnail-wrapper'>
             <div className='projects-card-tags-wrapper'>
@@ -29,6 +34,7 @@ const ProjectsCard = ({ project }) => {
             <a href={github} target='_blank' rel='noopener noreferrer' className='projects-card-button github'>View Repo <i className="fa-brands fa-github"></i></a>
         </div>
     </div>
+    </>
   )
 }
 

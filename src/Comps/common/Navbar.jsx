@@ -35,7 +35,7 @@ const Navbar = ({ handleTheme, mode, handleBurger, navMenu, navLogin, resetUser 
     <nav>
       <div className={`nav-inner ${isScrolled ? `active` : ``}`}>
         <div className="nav-logo-wrapper center-flex">
-          <Link to="/"><img src="/images/blogpfp.webp" alt="Stylized portrait of Jordan wearing sunglasses, created with a swirling, abstract filter effect that resembles painted brush strokes. The sunglasses reflect the word 'Vibes' in a bold, colorful font."/></Link>
+          <Link to="/" className='nav-logo'><span>Jordan</span></Link>
         </div>
         
         <div className='nav-right'>

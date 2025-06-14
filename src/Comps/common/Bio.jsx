@@ -1,13 +1,18 @@
 import AnimatedText from '../../utils/AnimatedText'
+import { Helmet } from 'react-helmet'
 
 const Bio = () => {
   return (
+    <>
+    <Helmet>
+      <link rel="preload" as="image" href="/images/pfp.webp" />
+    </Helmet>
     <div className='bio-wrapper'>
         <div className='bio-img-wrapper'>
             <img src='/images/pfp.webp' alt="Stylized portrait of Jordan wearing sunglasses, created with a swirling, abstract filter effect that resembles painted brush strokes. The sunglasses reflect the word 'Vibes' in a bold, colorful font."/>
         </div>
         <div className='bio-info-wrapper'>
-            <h1 className='bio-info-name'><AnimatedText text='Jordan Schulte'/></h1>
+            <span className='bio-info-name'><AnimatedText text='Jordan Schulte'/></span>
             <div className='bio-info-location'><AnimatedText text='Buffalo, NY'/></div>
             <div className='bio-info-role'><AnimatedText text='Front-End Engineer'/></div>
             <div className='bio-links-wrapper'>
@@ -20,6 +25,7 @@ const Bio = () => {
             </div>
         </div>
     </div>
+    </>
   )
 }
 
