@@ -10,6 +10,9 @@
     --red: #bd2c00;
     --green: #00bd2c;
     --aBg: rgba(255, 255, 255, 0.3);
+
+    --break-point: 928px;
+    --content-width: 1200px;
 }
 
 .light {

@@ -10,7 +10,7 @@ const Layout = () => {
     const useScrollLockOnLargeScreens = () => {
         useEffect(() => {
           const handleResize = () => {
-            if (window.innerWidth > 900) {
+            if (window.innerWidth > 937) {
               window.scrollTo(0, 0);
               document.body.style.overflow = 'hidden';
             } else {
