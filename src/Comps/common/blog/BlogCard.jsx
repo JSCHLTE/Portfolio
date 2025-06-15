@@ -18,7 +18,7 @@ const BlogCard = ({ user, deleteWarn }) => {
     <>
     {blogs.map((blog) => (
       <Link className='blog-link' to={`/blogs/${blog.slug}`} key={blog.slug}>
-      <article className='blog-item'>
+      <article className='blog-item button-press'>
       { user ? <div className='blog-delete' onClick={(e) => handleDelete(e, blog.slug)}><i className="fa-solid fa-trash"></i></div> : '' }
           <div className='blog-info'>
             <h3 className='blog-title'><AnimatedText text={blog.title} /></h3>

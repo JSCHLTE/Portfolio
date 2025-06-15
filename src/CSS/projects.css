@@ -103,6 +103,7 @@
     background-color: var(--lightBg);
     color: var(--black);
     border: 2px solid var(--LightBg);
+    transition: transform 0.1s ease;
 }
 
 .projects-card-button:hover {

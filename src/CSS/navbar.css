@@ -107,10 +107,6 @@ nav {
     background-color: var(--aBg);
 }
 
-.theme-wrapper:active {
-    transform: scale(0.8);
-}
-
 .nav-burger {
     display: flex;
     flex-direction: column;

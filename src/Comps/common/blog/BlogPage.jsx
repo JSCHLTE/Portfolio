@@ -87,7 +87,7 @@ const BlogPage = () => {
           </div>
         </div>
         <div className={`blogpage-likes ${checkLiked ? 'liked' : ''}`}>
-          <button onClick={handleLike}>
+          <button onClick={handleLike} className="button-press">
             <i className={`${checkLiked ? 'fa-solid fa-heart' : 'fa-regular fa-heart'}`}></i> {likes}
           </button>
         </div>

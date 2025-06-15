@@ -56,10 +56,6 @@
     text-transform: capitalize !important;
 }
 
-.contact-button.disabled {
-    cursor: not-allowed;
-}
-
 .spinner {
     width: 100%;
     height: 100%;
