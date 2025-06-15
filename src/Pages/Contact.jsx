@@ -85,10 +85,22 @@ const Contact = () => {
     <>
     <div className="contact-wrapper">
         <h1><AnimatedText text="Contact Me"/></h1>
+
+        {sending ? 
+        <div className='contact-sending-wrapper'>
+            <div className='contact-sending-title'>
+                <i class="fa-solid fa-triangle-exclamation"></i><span>Message Sending</span>
+            </div>
+            <div className='contact-sending-text'>
+                <p>Message may take up to 30-60 seconds to send if no messages have been sent in the past 15 minutes.</p>
+            </div>
+        </div> 
+        : ''}
+
         {messageSent ? 
         <div className='contact-success-wrapper'>
             <div className='contact-success-title'>
-                <span>Message Sent</span><i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-check"></i><span>Message Sent</span>
             </div>
             <div className='contact-success-text'>
                 <p>Thank you for contacting me! I will try to get back to you as soon as possible.</p>
@@ -96,10 +108,10 @@ const Contact = () => {
         </div> 
         : ''}
 
-{messageFailed ? 
+        {messageFailed ? 
         <div className='contact-failed-wrapper'>
             <div className='contact-failed-title'>
-                <span>Message Failed</span><i class="fa-solid fa-circle-xmark"></i>
+                <i class="fa-solid fa-circle-xmark"></i><span>Message Failed</span>
             </div>
             <div className='contact-failed-text'>
                 <p>Uh-oh, something went wrong sending the email. Please refresh the page and try again.</p>
@@ -123,7 +135,7 @@ const Contact = () => {
                 Message:
                 <textarea  id="contactBody" name="contactBody" required onChange={handleChange} value={formValues.contactBody}></textarea>
             </label>
-            {sending ? <button className='contact-button disabled' disabled>Sending...</button> : <button className='contact-button'>Send Message</button>}
+            {sending ? <button className='contact-button disabled' disabled><iframe className='spinner' src="https://lottie.host/embed/a9d1be0a-eba0-4c76-9dcf-b95d27e96f6b/jpskbz67I1.lottie"></iframe></button> : <button className='contact-button'>Send Message</button>}
         </form>
     </div>
     </>

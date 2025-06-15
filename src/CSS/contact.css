@@ -6,7 +6,7 @@
     margin: 1rem 0;
 }
 
-.contact-success-wrapper, .contact-failed-wrapper {
+.contact-success-wrapper, .contact-failed-wrapper, .contact-sending-wrapper {
     border-radius: 10px;
     padding: 1rem;
 }
@@ -21,7 +21,12 @@
     border: 2px solid red;
 }
 
-.contact-success-title, .contact-failed-title {
+.contact-sending-wrapper {
+    background-color: #F5F2E2;
+    border: 2px solid #8A7300;
+}
+
+.contact-success-title, .contact-failed-title, .contact-sending-title {
     font-weight: bold;
 }
 
@@ -33,15 +38,31 @@
     color: red;
 }
 
-.contact-success-title i, .contact-failed-title i {
-    margin-left: 0.25rem;
+.contact-sending-title {
+    color: #8A7300;
 }
 
-.contact-success-text, .contact-failed-text {
+.contact-success-title i, .contact-failed-title i, .contact-sending-title i {
+    margin-right: 0.25rem;
+}
+
+.contact-success-text, .contact-failed-text, .contact-sending-text {
     margin-top: 0.5rem;
     color: var(--permBlack);
 }
 
+.contact-button {
+    font-family: inherit;
+    text-transform: capitalize !important;
+}
+
 .contact-button.disabled {
     cursor: not-allowed;
+}
+
+.spinner {
+    width: 100%;
+    height: 100%;
+    border: none;
+    transform: scale(1.45);
 }
