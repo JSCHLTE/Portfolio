@@ -20,11 +20,36 @@ const Contact = () => {
         }))
       }
 
+      const handleSubmit = async(e) => {
+        e.preventDefault();
+
+        const { contactName, contactEmail, contactSubject, contactBody } = formValues
+
+        try {
+            const res = await fetch("http://localhost:3000/contact", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: contactName,
+                    email: contactEmail,
+                    subject: contactSubject,
+                    body: contactBody
+                }),
+            })
+
+            const result = await res.json()
+            console.log(`Message sent! ${result}`)
+
+        } catch (err){
+            console.log(`Contact Form Error ${err}`)
+        }
+      }
+
   return (
     <>
     <div className="contact-wrapper">
         <h1><AnimatedText text="Contact Me"/></h1>
-        <form action="https://formsubmit.co/email.jordanschulte@gmail.com" method="POST" id='contactForm'>
+        <form onSubmit={handleSubmit} id='contactForm'>
             <label htmlFor='contactName'>
                 Name:
                 <input type='text' id='contactName' name='contactName' placeholder='Jordan Schulte' required onChange={handleChange} value={formValues.contactName}/>

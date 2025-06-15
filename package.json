@@ -28,5 +28,18 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
     "vite": "^6.2.0"
-  }
+  },
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JSCHLTE/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JSCHLTE/Portfolio/issues"
+  },
+  "homepage": "https://github.com/JSCHLTE/Portfolio#readme",
+  "description": ""
 }
