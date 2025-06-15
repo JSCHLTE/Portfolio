@@ -5,3 +5,43 @@
 #contactForm input {
     margin: 1rem 0;
 }
+
+.contact-success-wrapper, .contact-failed-wrapper {
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.contact-success-wrapper {
+    background-color: #E2F5E5;
+    border: 2px solid green;
+}
+
+.contact-failed-wrapper {
+    background-color: #F5E2E2;
+    border: 2px solid red;
+}
+
+.contact-success-title, .contact-failed-title {
+    font-weight: bold;
+}
+
+.contact-success-title {
+    color: green;
+}
+
+.contact-failed-title {
+    color: red;
+}
+
+.contact-success-title i, .contact-failed-title i {
+    margin-left: 0.25rem;
+}
+
+.contact-success-text, .contact-failed-text {
+    margin-top: 0.5rem;
+    color: var(--permBlack);
+}
+
+.contact-button.disabled {
+    cursor: not-allowed;
+}

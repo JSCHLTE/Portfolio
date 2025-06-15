@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import AnimatedText from '../utils/AnimatedText'
 import '../CSS/contact.css'
 
@@ -11,6 +11,10 @@ const Contact = () => {
         contactBody: ''
       })
 
+      const [messageSent, setMessageSent] = useState(null);
+      const [messageFailed, setMessageFailed] = useState(null);
+      const [sending, setSending] = useState(null);
+
       const handleChange = (e) => {
         const { name, value } = e.target
 
@@ -22,8 +26,13 @@ const Contact = () => {
 
       const handleSubmit = async(e) => {
         e.preventDefault();
-
         const { contactName, contactEmail, contactSubject, contactBody } = formValues
+
+        if(contactBody.trim() == "" || contactSubject.trim() == "") {
+            return;
+        }
+
+        setSending(true)
 
         try {
             const res = await fetch("http://localhost:3000/contact", {
@@ -38,17 +47,65 @@ const Contact = () => {
             })
 
             const result = await res.json()
-            console.log(`Message sent! ${result}`)
-
+            setMessageSent(result)
+            setMessageFailed(null)
+            setSending(null)
+            setFormValues({
+                contactName: '',
+                contactEmail: '',
+                contactSubject: '',
+                contactBody: ''
+              })
         } catch (err){
-            console.log(`Contact Form Error ${err}`)
+            setMessageFailed(err);
+            setMessageSent(null)
+            setSending(null)
         }
       }
+
+      useEffect(() => {
+        let timeout;
+
+        if(messageFailed) {
+            timeout = setTimeout(() => {
+                setMessageFailed(null)
+            }, 7500)
+        }
+
+        if(messageSent) {
+            timeout = setTimeout(() => {
+                setMessageSent(null)
+            }, 7500)
+        }
+
+        return () => clearTimeout(timeout)
+      }, [messageFailed, messageSent])
 
   return (
     <>
     <div className="contact-wrapper">
         <h1><AnimatedText text="Contact Me"/></h1>
+        {messageSent ? 
+        <div className='contact-success-wrapper'>
+            <div className='contact-success-title'>
+                <span>Message Sent</span><i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div className='contact-success-text'>
+                <p>Thank you for contacting me! I will try to get back to you as soon as possible.</p>
+            </div>
+        </div> 
+        : ''}
+
+{messageFailed ? 
+        <div className='contact-failed-wrapper'>
+            <div className='contact-failed-title'>
+                <span>Message Failed</span><i class="fa-solid fa-circle-xmark"></i>
+            </div>
+            <div className='contact-failed-text'>
+                <p>Uh-oh, something went wrong sending the email. Please refresh the page and try again.</p>
+            </div>
+        </div> 
+        : ''}
         <form onSubmit={handleSubmit} id='contactForm'>
             <label htmlFor='contactName'>
                 Name:
@@ -66,7 +123,7 @@ const Contact = () => {
                 Message:
                 <textarea  id="contactBody" name="contactBody" required onChange={handleChange} value={formValues.contactBody}></textarea>
             </label>
-            <button className='contact-button'>Send Message</button>
+            {sending ? <button className='contact-button disabled' disabled>Sending...</button> : <button className='contact-button'>Send Message</button>}
         </form>
     </div>
     </>
