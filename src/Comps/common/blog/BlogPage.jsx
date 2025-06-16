@@ -6,10 +6,17 @@ import FormatDate from '../../../utils/FormatDate';
 import { useBlogs } from '../../../hooks/useBlogs';
 import { get, ref, update } from 'firebase/database';
 import { database } from '../../../firebase';
+import BlogDelete from './BlogDelete';
 
-const BlogPage = () => {
+const BlogPage = ({ user }) => {
   const { blogs, loading } = useBlogs();
   const { slug } = useParams();
+  const [deleteWarn, setDeleteWarn] = useState(null)
+  const [blogEdit, setBlogEdit] = useState(null)
+  const [blogEdits, setBlogEdits] = useState({
+    title: '',
+    content: ''
+  })
 
   const [checkLiked, setCheckLiked] = useState(false);
   const [likes, setLikes] = useState(0);
@@ -72,13 +79,52 @@ const BlogPage = () => {
     }
   };
   
-  
+  const handleDel = () => {
+    setDeleteWarn(true);
+  }
+
+  const handleEdit = () => {
+    setBlogEdit(prev => !prev)
+    setBlogEdits({
+      title: blog.title,
+      content: blog.content
+    })
+  }
+
+  const handleSave = async () => {
+    const blogRef = ref(database, `blogs/${slug}`);
+
+    try {
+      await update(blogRef, { 
+        title: blogEdits.title,
+        content: blogEdits.content
+      });
+
+      setBlogEdit(null)
+    }
+
+    catch (error) {
+      console.error("Error updating blog post:", error);
+    }
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+
+    setBlogEdits((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
   
 
   return (
     <div className='blogpage-wrapper'>
+      { user && deleteWarn ? <BlogDelete setDeleteWarning={setDeleteWarn} deleteBlog={slug}/> : ''}
       <header>
-        <h1><AnimatedText text={blog.title} /></h1>
+        {!blogEdit ? <h1><AnimatedText text={blog.title} /></h1> : 
+          <input value={blogEdits.title} name='title' className='blogpage-edit-input' onChange={handleChange}/>
+        }
         <div className='blogpage-meta'>
           <img src={blog.pfp} alt="Author Profile" />
           <div>
@@ -86,14 +132,29 @@ const BlogPage = () => {
             <time dateTime={blog.date}><FormatDate date={blog.date} /></time>
           </div>
         </div>
+        <div className='blogpage-meta-buttons'>
         <div className={`blogpage-likes ${checkLiked ? 'liked' : ''}`}>
           <button onClick={handleLike} className="button-press">
             <i className={`${checkLiked ? 'fa-solid fa-heart' : 'fa-regular fa-heart'}`}></i> {likes}
           </button>
         </div>
+        {user ?         <div className='blogpage-meta-buttons-admin'>
+          {blogEdit ?         <button className="button-press" onClick={handleSave}>
+            Save Blog
+          </button> :         <button className="button-press" onClick={handleEdit}>
+            Edit Blog
+          </button>}
+
+          <button className="button-press" onClick={handleDel}>
+            Delete Blog
+          </button>
+        </div> : ''}
+        </div>
       </header>
       <main className='blogpage-content'>
-        <Markdown>{blog.content}</Markdown>
+        {!blogEdit ? <Markdown>{blog.content}</Markdown> : 
+          <textarea className='blogpage-edit-textarea' name='content' onChange={handleChange} value={blogEdits.content}></textarea>
+        }
       </main>
     </div>
   );

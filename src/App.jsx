@@ -24,6 +24,13 @@ function App() {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('theme', JSON.stringify(theme));
     theme ? document.body.classList.remove("light") : document.body.classList.add("light"); 
   }, [theme]);
@@ -54,18 +61,9 @@ function App() {
     };
   }, []);
   
-
   const ProtectedRoute = ({ children }) => {
-    useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-        setUser(firebaseUser);
-      });
-      return () => unsubscribe();
-    }, []);
-  
     if (user === undefined) return <p>Loading...</p>;
     if (!user) return <Navigate to="/login" replace />;
-  
     return children;
   };
 
@@ -86,7 +84,7 @@ function App() {
         <Route path="blog" element={<Blog user={user}/>}/>
         <Route path="contact" element={<Contact />}/>
       </Route>
-        <Route path='/blogs/:slug' element={<BlogPage />}/>
+        <Route path='/blogs/:slug' element={<BlogPage user={user}/>}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/admin' element={
           <ProtectedRoute>

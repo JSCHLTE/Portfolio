@@ -10,7 +10,9 @@ const Blog = ({ user }) => {
   const [deleteWarning, setDeleteWarning] = useState(false);
   const [blogToDelete, setBlogToDelete] = useState(null);
 
-  const deleteWarn = (slug) => {
+  const deleteWarn = (slug, e) => {
+    e.preventDefault()
+    e.stopPropagation()
     setBlogToDelete(slug);
     setDeleteWarning(true);
   }
@@ -18,7 +20,6 @@ const Blog = ({ user }) => {
   return (
     <>
     {deleteWarning && user ? <BlogDelete setDeleteWarning={setDeleteWarning} deleteBlog={blogToDelete}/> : ''}
-    {deleteWarning && user ? <Overlay setDeleteWarning={setDeleteWarning} /> : ''}
       <div className="blog-wrapper">
         <h1><AnimatedText text='Blogs' /></h1>
         <div className='blogs-wrapper'>

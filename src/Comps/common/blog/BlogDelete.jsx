@@ -1,6 +1,7 @@
 import { ref, remove } from 'firebase/database';
 import { database } from '../../../firebase';
 import { useBlogs } from '../../../hooks/useBlogs';
+import Overlay from '../Overlay';
 
 const BlogDelete = ({ setDeleteWarning, deleteBlog }) => {
   const { refresh } = useBlogs();
@@ -18,6 +19,8 @@ const BlogDelete = ({ setDeleteWarning, deleteBlog }) => {
   }
 
   return (
+    <>
+      <Overlay />
     <div className='blog-delete-wrapper'>
         <div className='blog-delete-topbar'>
           <h3>Delete Blog</h3>
@@ -31,6 +34,7 @@ const BlogDelete = ({ setDeleteWarning, deleteBlog }) => {
             </div>
         </div>
     </div>
+    </>
   )
 }
 
