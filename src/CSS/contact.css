@@ -54,6 +54,7 @@
 .contact-button {
     font-family: inherit;
     text-transform: capitalize !important;
+    width: 100% !important;
 }
 
 .spinner {

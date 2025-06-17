@@ -34,7 +34,7 @@ const Navbar = ({ handleTheme, mode, handleBurger, navMenu, navLogin, resetUser 
   return (
     <nav>
       <div className={`nav-inner ${isScrolled ? `active` : ``}`}>
-        <div className="nav-logo-wrapper center-flex">
+        <div className="nav-logo-wrapper flex-center">
           <Link to="/" className='nav-logo'><span>Jordan</span></Link>
         </div>
         

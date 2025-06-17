@@ -3,23 +3,16 @@ import { useBlogs } from '../../../hooks/useBlogs';
 import AnimatedText from '../../../utils/AnimatedText'
 import FormatDate from '../../../utils/FormatDate';
 
-const BlogCard = ({ user, deleteWarn }) => {
+const BlogCard = () => {
 
   const { blogs, loading } = useBlogs();
   if (loading) return <p>Loading...</p>;
   if (blogs.length < 1) return <p>No blogs found.</p>;
 
-  const handleDelete = (event, slug) => {
-    event.preventDefault();
-    event.stopPropagation();
-    deleteWarn(slug, event);
-  }
-
   return (
     <>
     {blogs.map((blog) => (
       <div key={blog.slug} className='blog-card-container'>
-        { user && <div className='blog-delete' onClick={(e) => handleDelete(e, blog.slug)}><i className="fa-solid fa-trash"></i></div> }
         <Link className='blog-link' to={`/blogs/${blog.slug}`}>
           <article className='blog-item button-press'>
             <div className='blog-info'>

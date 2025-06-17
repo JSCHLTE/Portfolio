@@ -84,7 +84,7 @@ const BlogPage = ({ user }) => {
   }
 
   const handleEdit = () => {
-    setBlogEdit(prev => !prev)
+    setBlogEdit(true)
     setBlogEdits({
       title: blog.title,
       content: blog.content

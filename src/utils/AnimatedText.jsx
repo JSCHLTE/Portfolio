@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import '../CSS/animateText.css'
 
 const AnimatedText = ({ text }) => {
 

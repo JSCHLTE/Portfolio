@@ -89,11 +89,8 @@ nav {
 
 .theme-wrapper {
     cursor: pointer;
-    display: flex;
-    align-items: center;
     width: 40px;
     height: 40px;
-    justify-content: center;
     border-radius: 50%;
     flex-shrink: 0;
     transition: transform 0.1s ease;
@@ -109,9 +106,9 @@ nav {
 
 .nav-burger {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     gap: 5px;
     cursor: pointer;
     width: 40px;
