@@ -82,7 +82,6 @@ const Contact = () => {
       }, [messageFailed, messageSent])
 
   return (
-    <>
     <div className="contact-wrapper">
         <h1><AnimatedText text="Contact Me"/></h1>
 
@@ -138,7 +137,6 @@ const Contact = () => {
             {sending ? <button className='contact-button disabled' disabled><iframe className='spinner' src="https://lottie.host/embed/a9d1be0a-eba0-4c76-9dcf-b95d27e96f6b/jpskbz67I1.lottie"></iframe></button> : <button className='contact-button button-press'>Send Message</button>}
         </form>
     </div>
-    </>
   )
 }
 

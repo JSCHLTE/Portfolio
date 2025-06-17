@@ -37,3 +37,7 @@ body {
   transform: scale(0.9);
 }
   
+
+.layout-left.login {
+    display: none;
+}
