@@ -34,8 +34,7 @@
     
     .layout-right {
         flex: 2;
-        overflow-y: auto;
-        height: 90vh;
+        min-height: 90vh;
         margin-left: 1rem;
         margin-top: unset;
         padding-bottom: 5rem;

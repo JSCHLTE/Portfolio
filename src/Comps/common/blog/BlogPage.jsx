@@ -128,25 +128,25 @@ const BlogPage = ({ user }) => {
         <div className='blogpage-meta'>
           <img src={blog.pfp} alt="Author Profile" />
           <div>
-            <address>By {blog.author}</address>
-            <time dateTime={blog.date}><FormatDate date={blog.date} /></time>
+            <address className='blogpage-author'>By <span>{blog.author}</span></address>
+            <time dateTime={blog.date} className='blogpage-date'><FormatDate date={blog.date} /></time>
           </div>
         </div>
         <div className='blogpage-meta-buttons'>
-        <div className={`blogpage-likes ${checkLiked ? 'liked' : ''}`}>
+        {/* <div className={`blogpage-likes ${checkLiked ? 'liked' : ''}`}>
           <button onClick={handleLike} className="button-press">
             <i className={`${checkLiked ? 'fa-solid fa-heart' : 'fa-regular fa-heart'}`}></i> {likes}
           </button>
-        </div>
+        </div> */}
         {user ?         <div className='blogpage-meta-buttons-admin'>
-          {blogEdit ?         <button className="button-press" onClick={handleSave}>
-            Save Blog
-          </button> :         <button className="button-press" onClick={handleEdit}>
-            Edit Blog
+          {blogEdit ?         <button className="button-press blog-save" onClick={handleSave}>
+          <i class="fa-solid fa-floppy-disk"></i>
+          </button> :         <button className="button-press blog-edit" onClick={handleEdit}>
+          <i class="fa-solid fa-pen-to-square"></i>
           </button>}
 
-          <button className="button-press" onClick={handleDel}>
-            Delete Blog
+          <button className="button-press blog-delete" onClick={handleDel}>
+          <i class="fa-solid fa-trash-can"></i>
           </button>
         </div> : ''}
         </div>
