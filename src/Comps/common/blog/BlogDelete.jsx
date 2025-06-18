@@ -2,16 +2,20 @@ import { ref, remove } from 'firebase/database';
 import { database } from '../../../firebase';
 import { useBlogs } from '../../../hooks/useBlogs';
 import Overlay from '../Overlay';
+import { useNavigate } from 'react-router-dom';
 
 const BlogDelete = ({ setDeleteWarning, deleteBlog }) => {
   const { refresh } = useBlogs();
+  const navigate = useNavigate();
 
   const handleDelete = async () => {
+
     try {
       const blogRef = ref(database, `blogs/${deleteBlog}`);
       await remove(blogRef);
-      await refresh(); // Refresh the blog list
+      await refresh();
       setDeleteWarning(false);
+      navigate("/blog")
     } catch (error) {
       console.error("Error deleting post:", error);
       alert("Failed to delete post.");

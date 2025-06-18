@@ -86,7 +86,12 @@ const BlogPage = ({ admin }) => {
     try {
       await update(blogRef, { 
         title: blogEdits.title,
-        content: blogEdits.content
+        content: blogEdits.content,
+        snippet: blog.content.replace(/[#*_`>~\-+=]+/g, '')
+        .replace(/\[.*?\]\(.*?\)/g, '')
+        .replace(/!\[.*?\]\(.*?\)/g, '')
+        .trim()
+        .slice(0, 100) + '...'
       });
 
       setBlogEdit(null)

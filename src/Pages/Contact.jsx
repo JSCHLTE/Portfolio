@@ -1,6 +1,7 @@
 import { use, useEffect, useState } from 'react'
 import AnimatedText from '../utils/AnimatedText'
 import '../CSS/contact.css'
+import NotificationBox from '../utils/NotificationBox'
 
 const Contact = () => {
 
@@ -11,9 +12,7 @@ const Contact = () => {
         contactBody: ''
       })
 
-      const [messageSent, setMessageSent] = useState(null);
-      const [messageFailed, setMessageFailed] = useState(null);
-      const [sending, setSending] = useState(null);
+      const [notifications, setNotifications] = useState(null)
 
       const handleChange = (e) => {
         const { name, value } = e.target
@@ -32,7 +31,7 @@ const Contact = () => {
             return;
         }
 
-        setSending(true)
+        handleNotification("warning", "Message Sending", "Message may take 30-60 seconds if form was inactive for more than 15 minutes.")
 
         try {
             const res = await fetch("https://portfolio-evln.onrender.com/contact", {
@@ -47,9 +46,7 @@ const Contact = () => {
             })
 
             const result = await res.json()
-            setMessageSent(result)
-            setMessageFailed(null)
-            setSending(null)
+            result ? handleNotification("success", "Message Sent", "Thank you for messaging me, I will get back to you ASAP.") : ''
             setFormValues({
                 contactName: '',
                 contactEmail: '',
@@ -57,66 +54,34 @@ const Contact = () => {
                 contactBody: ''
               })
         } catch (err){
-            setMessageFailed(err);
-            setMessageSent(null)
-            setSending(null)
+            handleNotification("failed", "Failed", `Message failed due to error: ${err}`)
         }
+      }
+
+      const handleNotification = (type, message, desc) => {
+        setNotifications({
+          type: [type],
+          message: [message],
+          desc: [desc]
+        })
       }
 
       useEffect(() => {
         let timeout;
-
-        if(messageFailed) {
+    
+        if(notifications) {
             timeout = setTimeout(() => {
-                setMessageFailed(null)
+                setNotifications(null)
             }, 7500)
         }
-
-        if(messageSent) {
-            timeout = setTimeout(() => {
-                setMessageSent(null)
-            }, 7500)
-        }
-
+    
         return () => clearTimeout(timeout)
-      }, [messageFailed, messageSent])
+      }, [notifications])
 
   return (
     <div className="contact-wrapper">
         <h1><AnimatedText text="Contact Me"/></h1>
-
-        {sending ? 
-        <div className='contact-sending-wrapper'>
-            <div className='contact-sending-title'>
-                <i class="fa-solid fa-triangle-exclamation"></i><span>Message Sending</span>
-            </div>
-            <div className='contact-sending-text'>
-                <p>Message may take up to 30-60 seconds to send if no messages have been sent in the past 15 minutes.</p>
-            </div>
-        </div> 
-        : ''}
-
-        {messageSent ? 
-        <div className='contact-success-wrapper'>
-            <div className='contact-success-title'>
-                <i class="fa-solid fa-circle-check"></i><span>Message Sent</span>
-            </div>
-            <div className='contact-success-text'>
-                <p>Thank you for contacting me! I will try to get back to you as soon as possible.</p>
-            </div>
-        </div> 
-        : ''}
-
-        {messageFailed ? 
-        <div className='contact-failed-wrapper'>
-            <div className='contact-failed-title'>
-                <i class="fa-solid fa-circle-xmark"></i><span>Message Failed</span>
-            </div>
-            <div className='contact-failed-text'>
-                <p>Uh-oh, something went wrong sending the email. Please refresh the page and try again.</p>
-            </div>
-        </div> 
-        : ''}
+        {notifications ? <NotificationBox type={notifications.type} message={notifications.message} desc={notifications.desc}/> : ''}
         <form onSubmit={handleSubmit} id='contactForm'>
             <label htmlFor='contactName'>
                 Name:
@@ -134,7 +99,7 @@ const Contact = () => {
                 Message:
                 <textarea  id="contactBody" name="contactBody" required onChange={handleChange} value={formValues.contactBody}></textarea>
             </label>
-            {sending ? <button className='contact-button disabled' disabled><iframe className='spinner' src="https://lottie.host/embed/a9d1be0a-eba0-4c76-9dcf-b95d27e96f6b/jpskbz67I1.lottie"></iframe></button> : <button className='contact-button button-press'>Send Message</button>}
+            {notifications?.type == "warning" ? <button className='contact-button disabled' disabled><iframe className='spinner' src="https://lottie.host/embed/a9d1be0a-eba0-4c76-9dcf-b95d27e96f6b/jpskbz67I1.lottie"></iframe></button> : <button className='contact-button button-press'>Send Message</button>}
         </form>
     </div>
   )

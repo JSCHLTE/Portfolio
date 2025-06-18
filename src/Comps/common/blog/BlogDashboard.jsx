@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ref, set } from 'firebase/database';
 import { database } from '../../../firebase';
 import { slugify } from '../../../utils/slugify'; // make sure this exists!
 import AnimatedText from '../../../utils/AnimatedText';
 import '../../../CSS/form.css';
+import NotificationBox from '../../../utils/NotificationBox';
 
 const BlogDashboard = () => {
   const [formValues, setFormValues] = useState({
     blogTitle: '',
     blogBody: ''
   });
+  const [notifications, setNotifications] = useState(null)
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,17 +47,37 @@ const BlogDashboard = () => {
     try {
       const blogRef = ref(database, `blogs/${slug}`);
       await set(blogRef, newBlog);
-      alert("Blog posted!");
+      handleNotification("success", "Blog Posted", "Blog successfully posted.")
       setFormValues({ blogTitle: '', blogBody: '' });
     } catch (err) {
-      console.error("Error posting blog:", err);
-      alert("Something went wrong.");
+      handleNotification("failed", "Failed", `Blog posting failed due to error: ${err}`)
     }
   };
+
+  const handleNotification = (type, message, desc) => {
+    setNotifications({
+      type: [type],
+      message: [message],
+      desc: [desc]
+    })
+  }
+
+  useEffect(() => {
+    let timeout;
+
+    if(notifications) {
+        timeout = setTimeout(() => {
+            setNotifications(null)
+        }, 7500)
+    }
+
+    return () => clearTimeout(timeout)
+  }, [notifications])
 
   return (
     <div className='admin-wrapper'>
       <h1><AnimatedText text='Create a Blog' /></h1>
+      {notifications ? <NotificationBox type={notifications.type} message={notifications.message} desc={notifications.desc}/> : ''}
       <form className='admin-form' onSubmit={handleSubmit}>
         <div className='form-title-wrapper'>
           <label htmlFor="blogTitle">
