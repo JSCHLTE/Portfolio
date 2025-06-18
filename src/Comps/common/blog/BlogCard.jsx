@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom'
 import { useBlogs } from '../../../hooks/useBlogs';
 import AnimatedText from '../../../utils/AnimatedText'
 import FormatDate from '../../../utils/FormatDate';
+import Loading from '../Loading';
 
 const BlogCard = () => {
 
   const { blogs, loading } = useBlogs();
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (blogs.length < 1) return <p>No blogs found.</p>;
 
   return (

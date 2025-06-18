@@ -55,7 +55,7 @@ const BlogDashboard = () => {
 
   return (
     <div className='admin-wrapper'>
-      <h1><AnimatedText text='Create Blog' /></h1>
+      <h1><AnimatedText text='Create a Blog' /></h1>
       <form className='admin-form' onSubmit={handleSubmit}>
         <div className='form-title-wrapper'>
           <label htmlFor="blogTitle">

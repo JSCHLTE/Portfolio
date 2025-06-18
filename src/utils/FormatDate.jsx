@@ -5,7 +5,8 @@ const FormatDate = ({ date }) => {
     const formattedDate = new Intl.DateTimeFormat("en-US", {
         year: "numeric",
         month: "long",
-        day: "numeric"
+        day: "numeric",
+        timeZone: "America/New_York"
       }).format(localDate)
 
   return (
