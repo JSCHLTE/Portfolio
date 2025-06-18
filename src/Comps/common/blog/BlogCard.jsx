@@ -28,8 +28,8 @@ const BlogCard = () => {
                 </div>
               </div>
               <div className='blog-meta-right'>
-                <i className="fa-regular fa-heart"></i>
-                <span className='blog-meta-likes'>{blog.likes}</span>
+                {/* <i className="fa-regular fa-heart"></i>
+                <span className='blog-meta-likes'>{blog.likes}</span> */}
               </div>
             </div>
           </article>

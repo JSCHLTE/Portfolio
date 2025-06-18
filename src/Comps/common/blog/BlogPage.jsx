@@ -7,8 +7,9 @@ import { useBlogs } from '../../../hooks/useBlogs';
 import { get, ref, update } from 'firebase/database';
 import { database } from '../../../firebase';
 import BlogDelete from './BlogDelete';
+import Loading from '../Loading';
 
-const BlogPage = ({ user }) => {
+const BlogPage = ({ admin }) => {
   const { blogs, loading } = useBlogs();
   const { slug } = useParams();
   const [deleteWarn, setDeleteWarn] = useState(null)
@@ -29,18 +30,6 @@ const BlogPage = ({ user }) => {
   }, [slug]);
 
   useEffect(() => {
-    const path = `blogs/${slug}`;
-    const blogRef = ref(database, path);
-    get(blogRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log("✅ BLOG EXISTS at", path, snapshot.val());
-      } else {
-        console.error("❌ BLOG DOES NOT EXIST at", path);
-      }
-    });
-  }, [slug]);
-
-  useEffect(() => {
     if (!loading) {
       const blog = blogs.find((b) => b.slug === slug);
       if (blog) {
@@ -49,7 +38,7 @@ const BlogPage = ({ user }) => {
     }
   }, [loading, blogs, slug]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
   const blog = blogs.find((b) => b.slug === slug);
   if (!blog) return <div>Blog not found</div>;
@@ -120,7 +109,7 @@ const BlogPage = ({ user }) => {
 
   return (
     <div className='blogpage-wrapper'>
-      { user && deleteWarn ? <BlogDelete setDeleteWarning={setDeleteWarn} deleteBlog={slug}/> : ''}
+      { admin && deleteWarn ? <BlogDelete setDeleteWarning={setDeleteWarn} deleteBlog={slug}/> : ''}
       <header>
         {!blogEdit ? <h1><AnimatedText text={blog.title} /></h1> : 
           <input value={blogEdits.title} name='title' className='blogpage-edit-input' onChange={handleChange}/>
@@ -138,7 +127,7 @@ const BlogPage = ({ user }) => {
             <i className={`${checkLiked ? 'fa-solid fa-heart' : 'fa-regular fa-heart'}`}></i> {likes}
           </button>
         </div> */}
-        {user ?         <div className='blogpage-meta-buttons-admin'>
+        {admin ?         <div className='blogpage-meta-buttons-admin'>
           {blogEdit ?         <button className="button-press blog-save" onClick={handleSave}>
           <i class="fa-solid fa-floppy-disk"></i>
           </button> :         <button className="button-press blog-edit" onClick={handleEdit}>

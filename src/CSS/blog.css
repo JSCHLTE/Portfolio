@@ -159,6 +159,8 @@ gap: 1rem
     display: inline-block;
     font-style: italic;
     margin-top: 5px;
+    font-size: 0.9rem;
+    opacity: 0.75;
 }
 
 .blogpage-content {

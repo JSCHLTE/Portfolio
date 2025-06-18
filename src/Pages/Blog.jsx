@@ -5,25 +5,14 @@ import BlogCard from '../Comps/common/blog/BlogCard';
 import AnimatedText from '../utils/AnimatedText';
 import '../CSS/blog.css'
 
-const Blog = ({ user }) => {
-
-  const [deleteWarning, setDeleteWarning] = useState(false);
-  const [blogToDelete, setBlogToDelete] = useState(null);
-
-  const deleteWarn = (slug, e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setBlogToDelete(slug);
-    setDeleteWarning(true);
-  }
+const Blog = () => {
 
   return (
     <>
-    {deleteWarning && user ? <BlogDelete setDeleteWarning={setDeleteWarning} deleteBlog={blogToDelete}/> : ''}
       <div className="blog-wrapper">
         <h1><AnimatedText text='Blogs' /></h1>
         <div className='blogs-wrapper'>
-          <BlogCard user={user} deleteWarn={deleteWarn}/>
+          <BlogCard />
         </div>
     </div>
   </>

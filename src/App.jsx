@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
 import { auth } from "./firebase"
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signInAnonymously } from 'firebase/auth';
 import { Navigate } from "react-router-dom";
 import Navbar from "./Comps/common/Navbar"
 import Projects from "./Pages/Projects"
@@ -17,41 +17,13 @@ import Bio from "./Comps/common/Bio"
 import { motion, AnimatePresence } from "framer-motion"
 import './CSS/layout.css'
 import './CSS/bio.css'
+import checkIfAdmin from "./utils/checkIfAdmin";
+import Loading from "./Comps/common/Loading";
 
-const ProtectedRoute = ({ children, user }) => {
-  if (user === undefined) return <p>Loading...</p>;
-  if (!user) return <Navigate to="/login" replace />;
+const ProtectedRoute = ({ children, admin }) => {
+  if (admin === undefined) return <p>Loading...</p>;
+  if (!admin) return <Navigate to="/login" replace />;
   return children;
-};
-
-const AnimatedRoutes = ({ user }) => {
-  const location = useLocation();
-  
-  return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={location.pathname}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.2, ease: "easeInOut" }}
-      >
-        <Routes location={location}>
-          <Route path="/" element={<Projects />}/>
-          <Route path="about" element={<About />}/>
-          <Route path="blog" element={<Blog user={user}/>}/>
-          <Route path="contact" element={<Contact />}/>
-          <Route path='/blogs/:slug' element={<BlogPage user={user}/>}/>
-          <Route path='/login' element={<Login />}/>
-          <Route path='/admin' element={
-            <ProtectedRoute user={user}>
-              <BlogDashboard />
-            </ProtectedRoute>
-          } />
-        </Routes>
-      </motion.div>
-    </AnimatePresence>
-  );
 };
 
 function App() {
@@ -61,14 +33,23 @@ function App() {
   });
   const [navMenu, setNavMenu] = useState(false);
   const [user, setUser] = useState(undefined);
+  const [admin, setAdmin] = useState(undefined);
+  const [loading, setLoading] = useState(true)
   const location = useLocation();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      setUser(firebaseUser);
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const isAdmin = await checkIfAdmin();
+        setAdmin(isAdmin);
+      } else {
+        await signInAnonymously(auth);
+      }
+      setLoading(false)
     });
+  
     return () => unsubscribe();
-  }, []);
+  }, []);  
 
   useEffect(() => {
     localStorage.setItem('theme', JSON.stringify(theme));
@@ -105,9 +86,11 @@ function App() {
     setTheme(prev => !prev);
   };
 
+  if (loading) return <Loading />;
+
   return (
     <>
-      <Navbar handleTheme={handleTheme} mode={theme} handleBurger={handleBurger} navMenu={navMenu} navLogin={user} resetUser={resetUser}/>
+      <Navbar handleTheme={handleTheme} mode={theme} handleBurger={handleBurger} navMenu={navMenu} navLogin={admin} resetUser={resetUser}/>
       {navMenu ? <Overlay closeMenu={closeMenu}/> : ''}
       <div className="content-wrapper">
         <ScrollToTop setNavMenu={setNavMenu}/>
@@ -116,7 +99,29 @@ function App() {
             <Bio />
           </div>
           <div className="layout-right">
-            <AnimatedRoutes user={user} />
+          <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Projects />}/>
+          <Route path="about" element={<About />}/>
+          <Route path="blog" element={<Blog />}/>
+          <Route path="contact" element={<Contact />}/>
+          <Route path='/blogs/:slug' element={<BlogPage admin={admin}/>}/>
+          <Route path='/login' element={<Login />}/>
+          <Route path='/admin' element={
+            <ProtectedRoute admin={admin}>
+              <BlogDashboard />
+            </ProtectedRoute>
+          } />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
           </div>
         </main>
       </div>
