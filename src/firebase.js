@@ -2,7 +2,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
-import { getAuth, setPersistence, browserLocalPersistence } from 'firebase/auth';
+import { getAuth, setPersistence, browserLocalPersistence } from 'firebase/auth';import { signInAnonymously } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -18,9 +18,16 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth(app);
 
-setPersistence(auth, browserLocalPersistence)
-  .catch((error) => {
-    console.error("Error setting persistence:", error);
-  });
+async function initAuth() {
+  try {
+    await setPersistence(auth, browserLocalPersistence);
+    const userCredential = await signInAnonymously(auth);
+    console.log("Signed in anonymously:", userCredential.user.uid);
+  } catch (error) {
+    console.error("Auth error:", error);
+  }
+}
+
+initAuth();
 
 export { database, auth };
