@@ -9,14 +9,14 @@
     border-radius: 20px;
 }
 
-.bio-wrapper img {
+.bio-img-wrapper {
     width: 125px;
     height: 125px;
-    margin-right: 1.5rem;
-    display: block;
     object-fit: cover;
     border-radius: 50%;
+    overflow: hidden;
     border: 3px solid var(--theme);
+    margin-right: 1.5rem;
 }
 
 .bio-info-name {
@@ -58,13 +58,11 @@
     }
     
     .bio-img-wrapper {
-        margin-bottom: 1rem;
-    }
-    
-    .bio-wrapper img {
         width: 180px;
         height: 180px;
         margin: 0 auto;
+        margin-bottom: 1rem;
+        overflow: hidden;
     }
 }
 

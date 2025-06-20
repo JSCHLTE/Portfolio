@@ -32,10 +32,9 @@
     margin-top: 0;
 }
 
-.projects-card-thumbnail-wrapper img {
+.projects-img-wrapper {
     width: 100%;
     height: 250px;
-    object-fit: cover;
 }
 
 .projects-card-tags-wrapper {

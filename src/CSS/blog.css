@@ -15,6 +15,14 @@
 gap: 1rem
 }
 
+.blog-meta-img-wrapper {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 0.5rem;
+}
+
 .blogpage-edit-textarea {
     resize: vertical;
     width: 100%;
@@ -74,10 +82,12 @@ gap: 1rem
     margin-top: 2rem;
 }
 
-.blog-meta-pfp {
-    width: 40px;
-    height: 40px;
+.blogpage-img-wrapper {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1rem;
 }
 
 .blog-meta-left {
@@ -103,12 +113,6 @@ gap: 1rem
     display: flex;
     align-items: center;
     margin: 1rem 0;
-}
-
-.blogpage-meta img {
-    width: 50px;
-    border-radius: 50%;
-    margin-right: 1rem;
 }
 
 .blogpage-likes button, .blogpage-meta-buttons button  {

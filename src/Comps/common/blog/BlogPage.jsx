@@ -120,7 +120,9 @@ const BlogPage = ({ admin }) => {
           <input value={blogEdits.title} name='title' className='blogpage-edit-input' onChange={handleChange}/>
         }
         <div className='blogpage-meta'>
-          <img src={blog.pfp} alt="Author Profile" />
+        <div className='blogpage-img-wrapper skeleton'>
+          <img loading='eager' src={blog.pfp} alt="Author Profile" />
+        </div>
           <div>
             <address className='blogpage-author'>By <span>{blog.author}</span></address>
             <time dateTime={blog.date} className='blogpage-date'><FormatDate date={blog.date} /></time>

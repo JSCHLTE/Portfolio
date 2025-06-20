@@ -22,7 +22,9 @@ const BlogCard = () => {
             </div>
             <div className='blog-meta'>
               <div className='blog-meta-left'>
+              <div className='blog-meta-img-wrapper skeleton'>
                 <img src="/images/pfp.webp" alt="Image of Jordan" className='blog-meta-pfp' />
+              </div>
                 <div className='blog-meta-author-wrapper'>
                   <span className='blog-meta-author'>{blog.author}</span>
                   <time dateTime={blog.date}>{<FormatDate date={blog.date}/>}</time>

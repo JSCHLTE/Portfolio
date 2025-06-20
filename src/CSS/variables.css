@@ -13,6 +13,9 @@
 
     --break-point: 928px;
     --content-width: 1200px;
+
+    --skeleton1: #212121;
+    --skeleton2: #444;
 }
 
 .light {

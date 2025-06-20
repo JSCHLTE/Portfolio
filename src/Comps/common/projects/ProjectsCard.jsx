@@ -20,7 +20,9 @@ const ProjectsCard = ({ project }) => {
                 ))}
 
             </div>
-            <img src={thumbnail} alt='Project thumbnail'/>
+            <div className='projects-img-wrapper skeleton'>
+                <img src={thumbnail} alt='Project thumbnail'/>
+            </div>
         </div>
         <div className='projects-card-info-wrapper'>
             <h2 className='projects-card-title'><AnimatedText text={title} /></h2>

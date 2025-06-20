@@ -8,7 +8,7 @@ const Bio = () => {
       <link rel="preload" as="image" href="/images/pfp.webp" />
     </Helmet>
     <div className='bio-wrapper'>
-        <div className='bio-img-wrapper'>
+        <div className='bio-img-wrapper skeleton'>
             <img src='/images/pfp.webp' alt="Stylized portrait of Jordan wearing sunglasses, created with a swirling, abstract filter effect that resembles painted brush strokes. The sunglasses reflect the word 'Vibes' in a bold, colorful font."/>
         </div>
         <div className='bio-info-wrapper'>
