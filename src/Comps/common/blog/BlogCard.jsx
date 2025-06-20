@@ -12,7 +12,7 @@ const BlogCard = () => {
 
   return (
     <>
-    {blogs.map((blog) => (
+    {blogs.sort((a, b) => new Date(b.date) - new Date(a.date)).map((blog) => (
       <div key={blog.slug} className='blog-card-container'>
         <Link className='blog-link' to={`/blogs/${blog.slug}`}>
           <article className='blog-item button-press'>
